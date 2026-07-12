@@ -6,36 +6,19 @@
 <title>מדריך מבחן — היסטוריה של אמצעי התקשורת</title>
 <style>
   :root {
-    --paper: #FAF8F4;
-    --card: #FFFFFF;
-    --ink: #1C1D22;
-    --ink-soft: #4A4C55;
-    --ink-faint: #74767F;
-    --line: #E4E0D8;
-    --accent: #0E5F5A;
-    --accent-soft: #E2EFED;
-    --amber: #B0741A;
-    --amber-soft: #F6EBD8;
-    --plum: #7A3350;
-    --rose-soft: #F3E4EA;
+    --paper: #FAF8F4; --card: #FFFFFF; --ink: #1C1D22; --ink-soft: #4A4C55;
+    --ink-faint: #74767F; --line: #E4E0D8; --accent: #0E5F5A; --accent-soft: #E2EFED;
+    --amber: #B0741A; --amber-soft: #F6EBD8; --plum: #7A3350; --rose-soft: #F3E4EA;
+    --blue: #2C5A8C; --blue-soft: #E3ECF5;
     --shadow: 0 1px 2px rgba(28,29,34,.04), 0 8px 24px rgba(28,29,34,.05);
-    --radius: 14px;
-    --maxw: 60rem;
+    --radius: 14px; --maxw: 62rem;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #14161A;
-      --card: #1B1E24;
-      --ink: #ECEBE6;
-      --ink-soft: #B4B6BD;
-      --ink-faint: #83868F;
-      --line: #2C3038;
-      --accent: #47B3AC;
-      --accent-soft: #16302E;
-      --amber: #D69A44;
-      --amber-soft: #2E2617;
-      --plum: #D08AA6;
-      --rose-soft: #2E1E26;
+      --paper: #14161A; --card: #1B1E24; --ink: #ECEBE6; --ink-soft: #B4B6BD;
+      --ink-faint: #83868F; --line: #2C3038; --accent: #47B3AC; --accent-soft: #16302E;
+      --amber: #D69A44; --amber-soft: #2E2617; --plum: #D08AA6; --rose-soft: #2E1E26;
+      --blue: #7FA9D6; --blue-soft: #1A2432;
       --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
     }
   }
@@ -43,485 +26,890 @@
     --paper: #FAF8F4; --card: #FFFFFF; --ink: #1C1D22; --ink-soft: #4A4C55;
     --ink-faint: #74767F; --line: #E4E0D8; --accent: #0E5F5A; --accent-soft: #E2EFED;
     --amber: #B0741A; --amber-soft: #F6EBD8; --plum: #7A3350; --rose-soft: #F3E4EA;
+    --blue: #2C5A8C; --blue-soft: #E3ECF5;
     --shadow: 0 1px 2px rgba(28,29,34,.04), 0 8px 24px rgba(28,29,34,.05);
   }
   :root[data-theme="dark"] {
     --paper: #14161A; --card: #1B1E24; --ink: #ECEBE6; --ink-soft: #B4B6BD;
     --ink-faint: #83868F; --line: #2C3038; --accent: #47B3AC; --accent-soft: #16302E;
     --amber: #D69A44; --amber-soft: #2E2617; --plum: #D08AA6; --rose-soft: #2E1E26;
+    --blue: #7FA9D6; --blue-soft: #1A2432;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
   }
 
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body { margin: 0; }
   .wrap {
-    direction: rtl;
     font-family: "Assistant", "Heebo", "Rubik", -apple-system, "Segoe UI", system-ui, sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.7;
-    font-size: 17px;
-    padding: 2.2rem 1.2rem 5rem;
-    -webkit-font-smoothing: antialiased;
+    background: var(--paper); color: var(--ink); line-height: 1.75; font-size: 17px;
+    padding: 2.2rem 1.2rem 5rem; -webkit-font-smoothing: antialiased;
   }
   .container { max-width: var(--maxw); margin: 0 auto; }
 
-  /* Header */
-  .masthead {
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 1.4rem;
-    margin-bottom: 2rem;
-  }
-  .eyebrow {
-    font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--accent); font-weight: 700; margin: 0 0 .5rem;
-  }
-  .masthead h1 {
-    font-size: clamp(1.8rem, 5vw, 2.7rem); line-height: 1.15; margin: 0 0 .6rem;
-    font-weight: 800; letter-spacing: -.01em; text-wrap: balance;
-  }
-  .masthead p { margin: 0; color: var(--ink-soft); font-size: 1.05rem; max-width: 46rem; }
-  .exam-facts {
-    display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.1rem;
-  }
-  .fact {
-    background: var(--card); border: 1px solid var(--line); border-radius: 999px;
-    padding: .3rem .85rem; font-size: .85rem; color: var(--ink-soft); box-shadow: var(--shadow);
-  }
+  .masthead { border-bottom: 2px solid var(--ink); padding-bottom: 1.4rem; margin-bottom: 1.8rem; }
+  .eyebrow { font-size: .8rem; letter-spacing: .16em; color: var(--accent); font-weight: 700; margin: 0 0 .5rem; }
+  .masthead h1 { font-size: clamp(1.8rem, 5vw, 2.7rem); line-height: 1.15; margin: 0 0 .6rem; font-weight: 800; letter-spacing: -.01em; text-wrap: balance; }
+  .masthead p { margin: 0; color: var(--ink-soft); font-size: 1.05rem; max-width: 48rem; }
+  .exam-facts { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.1rem; }
+  .fact { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: .3rem .85rem; font-size: .85rem; color: var(--ink-soft); box-shadow: var(--shadow); }
   .fact b { color: var(--ink); }
 
-  /* TOC */
-  nav.toc {
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 1.2rem 1.4rem; margin-bottom: 2.6rem; box-shadow: var(--shadow);
-  }
-  nav.toc h2 { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 .8rem; }
-  nav.toc ol { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem,1fr)); gap: .35rem .9rem; counter-reset: toc; }
-  nav.toc a { counter-increment: toc; display: flex; gap: .6rem; align-items: baseline; text-decoration: none; color: var(--ink); padding: .35rem .4rem; border-radius: 8px; font-size: .95rem; }
+  .how { background: var(--accent-soft); border-radius: var(--radius); padding: 1rem 1.3rem; margin-bottom: 2.4rem; font-size: .96rem; }
+  .how b { color: var(--accent); }
+  .how ol { margin: .5rem 0 0; padding-inline-start: 1.2rem; }
+  .how li { margin: .2rem 0; }
+
+  nav.toc { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.4rem; margin-bottom: 2.6rem; box-shadow: var(--shadow); }
+  nav.toc h2 { font-size: .78rem; letter-spacing: .14em; color: var(--ink-faint); margin: 0 0 .8rem; }
+  nav.toc ol { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem,1fr)); gap: .3rem .9rem; counter-reset: toc; }
+  nav.toc a { counter-increment: toc; display: flex; gap: .6rem; align-items: baseline; text-decoration: none; color: var(--ink); padding: .32rem .4rem; border-radius: 8px; font-size: .93rem; }
   nav.toc a::before { content: counter(toc, decimal-leading-zero); color: var(--accent); font-weight: 700; font-size: .8rem; font-variant-numeric: tabular-nums; }
   nav.toc a:hover { background: var(--accent-soft); }
 
-  /* Sections */
   section { margin-bottom: 3rem; scroll-margin-top: 1rem; }
   .sec-head { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.1rem; }
-  .badge {
-    flex: none; width: 2.4rem; height: 2.4rem; border-radius: 10px;
-    background: var(--accent); color: #fff; display: grid; place-items: center;
-    font-weight: 800; font-size: 1.05rem;
-  }
-  :root[data-theme="dark"] .badge, .wrap .badge { color: #06110F; }
-  @media (prefers-color-scheme: dark) { .badge { color: #06110F; } }
+  .badge { flex: none; min-width: 2.4rem; height: 2.4rem; padding: 0 .5rem; border-radius: 10px; background: var(--accent); color: #06110F; display: grid; place-items: center; font-weight: 800; font-size: 1rem; }
   .sec-head h2 { font-size: 1.5rem; margin: 0; font-weight: 800; letter-spacing: -.01em; }
   .sec-head .sub { color: var(--ink-faint); font-size: .9rem; display: block; font-weight: 500; margin-top: .1rem; }
 
-  h3 { font-size: 1.15rem; margin: 1.6rem 0 .5rem; font-weight: 700; }
-  p { margin: .5rem 0; }
-  strong { font-weight: 700; }
-
   .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.3rem 1.5rem; box-shadow: var(--shadow); margin-bottom: 1rem; }
 
-  /* Concept blocks inside topics */
-  .concept-grid { display: grid; gap: .7rem; margin: .8rem 0; }
-  .kv { border-inline-start: 3px solid var(--accent); padding: .1rem 0 .1rem .9rem; padding-inline-start: .9rem; }
-  .kv .label { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
-  .kv.amber { border-color: var(--amber); } .kv.amber .label { color: var(--amber); }
-  .kv.plum { border-color: var(--plum); } .kv.plum .label { color: var(--plum); }
+  /* Brief Q&A */
+  .brief-q { margin: 0 0 1.1rem; }
+  .brief-q:last-child { margin-bottom: 0; }
+  .brief-q .q { font-weight: 800; color: var(--accent); font-size: 1.08rem; display: flex; gap: .6rem; align-items: baseline; }
+  .brief-q .q .n { background: var(--accent); color: #06110F; width: 1.5rem; height: 1.5rem; border-radius: 6px; display: inline-grid; place-items: center; font-size: .8rem; flex: none; }
+  .brief-q p { margin: .4rem 0 0; padding-inline-start: 2.1rem; }
 
-  ul.terms { list-style: none; padding: 0; margin: .6rem 0; display: grid; gap: .4rem; }
+  /* Lesson template */
+  .lesson { border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 1.4rem; background: var(--card); }
+  .lesson > .head { background: var(--accent-soft); padding: 1rem 1.4rem; }
+  .lesson > .head .kicker { font-size: .74rem; letter-spacing: .12em; color: var(--accent); font-weight: 700; }
+  .lesson > .head h3 { margin: .15rem 0 0; font-size: 1.3rem; font-weight: 800; }
+  .lesson > .body { padding: 1.1rem 1.4rem 1.4rem; }
+  .block { margin: 1.05rem 0; }
+  .block:first-child { margin-top: .2rem; }
+  .block .lab { font-size: .73rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 800; display: inline-flex; align-items: center; gap: .4rem; margin-bottom: .35rem; }
+  .block.intro { background: var(--blue-soft); border-radius: 10px; padding: .8rem 1rem; }
+  .block.intro .lab { color: var(--blue); }
+  .block.ex .lab { color: var(--plum); }
+  .block.skel { background: var(--amber-soft); border-radius: 10px; padding: .9rem 1.1rem; }
+  .block.skel .lab { color: var(--amber); }
+  .block.q-exam { border-inline-start: 3px solid var(--plum); padding-inline-start: .9rem; }
+  .block.q-exam .lab { color: var(--plum); }
+  .block.bigq { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; }
+  ul.terms { list-style: none; padding: 0; margin: .4rem 0; display: grid; gap: .4rem; }
   ul.terms li { padding-inline-start: 1.1rem; position: relative; }
-  ul.terms li::before { content: "◆"; position: absolute; inset-inline-start: 0; color: var(--accent); font-size: .7rem; top: .35em; }
+  ul.terms li::before { content: "◆"; position: absolute; inset-inline-start: 0; color: var(--accent); font-size: .68rem; top: .4em; }
   ul.terms li b { color: var(--ink); }
+  ul.plain { margin: .4rem 0; padding-inline-start: 1.2rem; }
+  ul.plain li { margin: .25rem 0; }
+  .skel ol { margin: .3rem 0 0; padding-inline-start: 1.3rem; }
+  .skel ol li { margin: .2rem 0; }
 
-  .exam-tip {
-    background: var(--amber-soft); border: 1px solid transparent; border-radius: 10px;
-    padding: .8rem 1rem; margin: .8rem 0 0; font-size: .95rem;
-  }
-  .exam-tip .label { font-weight: 800; color: var(--amber); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; display: block; margin-bottom: .2rem; }
+  /* People chips */
+  .people { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .3rem; }
+  .chip { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: .35rem .7rem; font-size: .88rem; }
+  .chip b { color: var(--accent); }
 
-  /* Table */
-  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); margin: 1rem 0; }
-  table { border-collapse: collapse; width: 100%; min-width: 46rem; font-size: .92rem; background: var(--card); }
-  th, td { text-align: start; padding: .75rem .9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-  thead th { background: var(--accent-soft); color: var(--ink); font-weight: 700; position: sticky; top: 0; }
-  tbody th { font-weight: 800; color: var(--accent); white-space: nowrap; border-inline-end: 1px solid var(--line); }
-  tbody tr:last-child td, tbody tr:last-child th { border-bottom: none; }
+  /* mini timeline inside lesson */
+  .mini-tl { display: grid; gap: .35rem; margin-top: .3rem; }
+  .mini-tl div { display: flex; gap: .7rem; font-size: .92rem; }
+  .mini-tl .yr { font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; min-width: 4.5rem; }
 
-  /* Question bank */
-  .q { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin-bottom: .8rem; box-shadow: var(--shadow); }
-  .q .qnum { font-weight: 800; color: var(--plum); font-size: .8rem; letter-spacing: .08em; }
-  .q p { margin: .3rem 0 0; }
-  .qtag { display: inline-block; font-size: .7rem; background: var(--rose-soft); color: var(--plum); padding: .12rem .55rem; border-radius: 999px; margin-top: .5rem; font-weight: 700; }
+  /* Big timeline */
+  .timeline { position: relative; margin: 1rem 0; padding-inline-start: 0; }
+  .tl-row { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: .7rem 0; border-bottom: 1px dashed var(--line); }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-era { font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .tl-body b { color: var(--ink); }
+  .tl-body .m { color: var(--ink-faint); font-size: .85rem; }
 
-  /* Sample answer */
-  .answer { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.6rem; box-shadow: var(--shadow); margin-bottom: 1.2rem; }
-  .answer > .qref { font-weight: 800; color: var(--accent); margin: 0 0 .8rem; font-size: 1.02rem; }
-  .move { margin: .9rem 0; }
-  .move .tag { display: inline-block; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 800; background: var(--accent-soft); padding: .18rem .6rem; border-radius: 6px; margin-bottom: .3rem; }
+  /* Concept map */
+  .cmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem,1fr)); gap: .9rem; }
+  .hub { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.2rem; box-shadow: var(--shadow); }
+  .hub h4 { margin: 0 0 .2rem; font-size: 1.05rem; color: var(--accent); }
+  .hub .role { font-size: .8rem; color: var(--ink-faint); margin-bottom: .5rem; }
+  .hub ul { margin: 0; padding-inline-start: 1.1rem; font-size: .92rem; }
+  .hub ul li { margin: .18rem 0; }
+  .axis { background: var(--amber-soft); border-radius: var(--radius); padding: 1rem 1.2rem; }
+  .axis h4 { margin: 0 0 .4rem; color: var(--amber); }
+
+  .exam-tip { background: var(--amber-soft); border-radius: 10px; padding: .8rem 1rem; margin: .8rem 0 0; font-size: .95rem; }
+  .exam-tip .label { font-weight: 800; color: var(--amber); font-size: .78rem; letter-spacing: .06em; display: block; margin-bottom: .2rem; }
 
   .callout { background: var(--accent-soft); border-radius: var(--radius); padding: 1.2rem 1.4rem; margin: 1rem 0; }
   .callout h3 { margin-top: 0; }
 
-  hr.div { border: none; border-top: 1px solid var(--line); margin: 2.4rem 0; }
-  .foot { text-align: center; color: var(--ink-faint); font-size: .85rem; margin-top: 3rem; }
+  .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 44rem; font-size: .92rem; background: var(--card); }
+  th, td { text-align: start; padding: .7rem .9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { background: var(--accent-soft); color: var(--ink); font-weight: 700; }
+  tbody th { font-weight: 800; color: var(--accent); white-space: nowrap; border-inline-end: 1px solid var(--line); }
 
+  /* Q bank */
+  .qa { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.1rem 1.3rem; margin-bottom: .9rem; box-shadow: var(--shadow); }
+  .qa .qnum { font-weight: 800; color: var(--plum); font-size: .8rem; letter-spacing: .06em; }
+  .qa .qtext { margin: .3rem 0 .7rem; }
+  .qa .ans { border-inline-start: 3px solid var(--accent); padding-inline-start: .9rem; font-size: .95rem; }
+  .qa .ans .lab { font-size: .72rem; letter-spacing: .08em; color: var(--accent); font-weight: 800; display: block; margin-bottom: .2rem; }
+
+  hr.div { border: none; border-top: 1px solid var(--line); margin: 2.6rem 0; }
+  .foot { text-align: center; color: var(--ink-faint); font-size: .85rem; margin-top: 3rem; }
   a.up { color: var(--accent); text-decoration: none; font-weight: 600; font-size: .85rem; }
   a:focus-visible, nav.toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
-
 <div class="wrap">
 <div class="container">
 
   <header class="masthead">
-    <p class="eyebrow">מדריך מבחן · יומיים</p>
-    <h1>היסטוריה של אמצעי התקשורת — כל מה שצריך כדי לענות טוב</h1>
-    <p>המבחן לא בודק שינון. הוא בודק אם אתה יודע לקחת <b>עיקרון גדול</b> (איך טכנולוגיה מעצבת חברה), להדגים אותו ב<b>דוגמה היסטורית חזקה</b>, ולנתח את השינוי. המדריך הזה בנוי בדיוק סביב זה.</p>
+    <p class="eyebrow">מדריך מבחן · מתחילים מאפס</p>
+    <h1>היסטוריה של אמצעי התקשורת — מהתמונה הגדולה ועד המבחן</h1>
+    <p>המדריך הזה בנוי בשביל מישהו שלא יודע עדיין כלום על הקורס. קודם נבין <b>מה בכלל הסיפור הגדול</b>, אחר כך נרד שיעור-שיעור, ורק אז נתרגל תשובות למבחן. אל תדלג — הסדר הוא כל העניין.</p>
     <div class="exam-facts">
       <span class="fact"><b>4 מתוך 5</b> שאלות</span>
       <span class="fact"><b>25 נק'</b> לשאלה</span>
       <span class="fact"><b>180 דק'</b> · ללא חומר עזר</span>
-      <span class="fact">מבנה קבוע: <b>הגדרה → הדגמה → ניתוח</b></span>
     </div>
   </header>
 
-  <nav class="toc" aria-label="תוכן עניינים">
-    <h2>הנושאים</h2>
+  <div class="how">
+    <b>איך ללמוד מהמדריך הזה — מסלול ב-4 שלבים:</b>
     <ol>
-      <li><a href="#strategy">איך המבחן עובד — האסטרטגיה</a></li>
-      <li><a href="#master">הטבלה המנצחת: כל מדיום ב-3 צירים</a></li>
-      <li><a href="#t1">הגישות + מקלוהן</a></li>
-      <li><a href="#t2">הדפוס וגוטנברג</a></li>
-      <li><a href="#t3">הטלגרף והרכבת</a></li>
-      <li><a href="#t4">הצילום והקולנוע</a></li>
-      <li><a href="#t5">הרדיו</a></li>
-      <li><a href="#t6">הטלוויזיה</a></li>
-      <li><a href="#t7">המהפכה הדיגיטלית</a></li>
-      <li><a href="#bank">בנק שאלות בסגנון המרצה</a></li>
-      <li><a href="#answers">תשובות לדוגמה ברמה גבוהה</a></li>
+      <li><b>הבן את התמונה הגדולה</b> (הבריף מאפס) — 10 דקות, אבל קריטי.</li>
+      <li><b>עבור שיעור-שיעור</b> לפי הסדר. אל תשנן — תבין את הסיפור של כל מדיום.</li>
+      <li><b>חבר הכול</b> דרך הטיימליין הכללי ומפת המושגים.</li>
+      <li><b>תרגל</b> עם בנק השאלות, ולפי תוכנית היומיים בסוף.</li>
+    </ol>
+  </div>
+
+  <nav class="toc" aria-label="תוכן עניינים">
+    <h2>מה יש במדריך</h2>
+    <ol>
+      <li><a href="#brief">בריף מאפס — התמונה הגדולה</a></li>
+      <li><a href="#l1">שיעור 1 — מבוא: איך חושבים על מדיה</a></li>
+      <li><a href="#l2">שיעור 2 — הדפוס והמרחב הציבורי</a></li>
+      <li><a href="#l3">שיעור 3 — הטלגרף, הרכבת והעיתונות</a></li>
+      <li><a href="#l4">שיעורים 4–5 — מצילום לקולנוע</a></li>
+      <li><a href="#l5">שיעורים 6–7 — הרדיו ותרבות ההמונים</a></li>
+      <li><a href="#l6">שיעורים 8–9 — עידן הטלוויזיה</a></li>
+      <li><a href="#l7">שיעור 10 — המהפכה הדיגיטלית</a></li>
+      <li><a href="#timeline">טיימליין כללי של הקורס</a></li>
+      <li><a href="#cmap">מפת מושגים — מי קשור למה</a></li>
+      <li><a href="#core">מה הכי חשוב לזכור למבחן</a></li>
+      <li><a href="#bank">בנק שאלות + תשובות לדוגמה</a></li>
+      <li><a href="#plan">תוכנית למידה ליומיים</a></li>
     </ol>
   </nav>
 
-  <!-- STRATEGY -->
-  <section id="strategy">
-    <div class="sec-head"><div class="badge">A</div><div><h2>איך המבחן עובד — האסטרטגיה</h2><span class="sub">מה המרצה באמת מחפש</span></div></div>
+  <!-- ============ BRIEF ============ -->
+  <section id="brief">
+    <div class="sec-head"><div class="badge">★</div><div><h2>בריף מאפס — התמונה הגדולה</h2><span class="sub">קרא את זה קודם. בלי זה, כל השאר יהיה שינון חסר משמעות.</span></div></div>
     <div class="card">
-      <p>לפי שתי שאלות הדוגמה, קריטריוני ההערכה ומייל המרצה, כל שאלה בנויה מאותו DNA:</p>
-      <ul class="terms">
-        <li><b>סעיף א' — הגדרה/הסבר מושג</b> (5–10 נק'): הגדר תיאוריה או מושג בצורה מדויקת.</li>
-        <li><b>סעיף ב' — הדגמה היסטורית</b> (10–15 נק'): קח את המושג והראה אותו על מעבר טכנולוגי אמיתי, כולל השינוי החברתי / הקוגניטיבי / הפוליטי.</li>
-        <li><b>סעיף ג' — ניתוח/ביקורת</b> (10 נק'): "איך זה מאתגר / מפריך / מסבך" הבטחה או תפיסה מקובלת.</li>
-      </ul>
-      <div class="exam-tip">
-        <span class="label">מפתח הזהב מהמייל של המרצה</span>
-        על <b>כל מדיום</b> תדע לענות במשפט אחד על שלושה דברים: (1) מה הוא <b>שינה לעומת העבר</b>, (2) איך הוא <b>עזר לצבא</b>, (3) איך <b>מנהיגים השתמשו בו</b> לחברה ולפוליטיקה. אם אתה יודע את שלושת אלה — יש לך תשובה לכל שאלה. הטבלה בפרק הבא נותנת לך בדיוק את זה.
+      <div class="brief-q">
+        <div class="q"><span class="n">1</span> מה הקורס הזה בכלל?</div>
+        <p>זהו קורס ב<b>היסטוריה של אמצעי התקשורת</b>: איך המדיה התפתחה מ<b>תרבות שבעל-פה</b> (לפני הכתב), דרך הכתב, הדפוס, העיתונות, הטלגרף, הרדיו והטלוויזיה, ועד האינטרנט והרשתות החברתיות. אבל — ולזה שים לב — הקורס לא עוסק ב"מי המציא מה ומתי". הוא עוסק ב<b>מה כל המצאה כזו עשתה לבני האדם ולחברה</b>.</p>
+      </div>
+      <div class="brief-q">
+        <div class="q"><span class="n">2</span> מה השאלה הגדולה של הקורס?</div>
+        <p>שאלה אחת חוזרת מאחורי כל שיעור: <b>"איך כל טכנולוגיית תקשורת חדשה משנה את החברה — את דרכי החשיבה, את הפוליטיקה, ואת יחסי הכוח?"</b> ובאופן ביקורתי: כל אמצעי חדש מבטיח יותר שוויון ו"דמוקרטיזציה" — האם הוא באמת מקיים את ההבטחה, או שהוא רק <b>משכפל את פערי הכוח הקיימים</b> בצורה חדשה?</p>
+      </div>
+      <div class="brief-q">
+        <div class="q"><span class="n">3</span> מה הקו ההיסטורי-רעיוני שעובר לאורך הקורס?</div>
+        <p>הקו העובדתי: <b>אוראלי → כתב → דפוס → עיתונות → טלגרף → צילום/קולנוע → רדיו → טלוויזיה → דיגיטלי/רשתות.</b> הקו הרעיוני שמאחוריו: כל מדיום חדש <b>מבטל מגבלה</b> ישנה (של מרחב, של זמן, או של גישה לידע), <b>משנה את התודעה</b> (איך אנחנו חושבים וזוכרים), ו<b>מעצב מחדש כוח פוליטי</b> — ולעולם אינו "ניטרלי".</p>
+      </div>
+      <div class="brief-q">
+        <div class="q"><span class="n">4</span> למה המרצה רוצה שנבין היסטוריה, ולא רק נשנן המצאות?</div>
+        <p>כי המטרה היא לתפוס <b>עיקרון אחד גדול שחוזר בכל דור</b> — "המדיום הוא המסר" של מקלוהן: הטכנולוגיה עצמה מעצבת חברה, לא רק התוכן שעובר בה. מי שמבין <b>איך הדפוס שינה את העולם במאה ה-15</b>, מבין גם מה האינטרנט עושה לנו <b>עכשיו</b>. ההיסטוריה כאן היא כלי חשיבה על ההווה — לא אוסף תאריכים.</p>
+      </div>
+      <div class="brief-q">
+        <div class="q"><span class="n">5</span> איזה סוג תשובות צריך לדעת לכתוב במבחן?</div>
+        <p>לא רשימת עובדות — אלא <b>טיעון אקדמי קטן</b>. כל תשובה טובה עושה שלושה מהלכים: <b>(א) מגדירה מושג/תיאוריה במדויק</b> → <b>(ב) מדגימה אותו על מעבר טכנולוגי אמיתי</b> → <b>(ג) מנתחת</b> את השינוי החברתי העמוק (ולעיתים מוסיפה ביקורת). המבחן מודד אם אתה יודע <b>לקשר טכנולוגיה לשינוי תרבותי</b> — לא כמה תאריכים זכרת.</p>
       </div>
     </div>
     <div class="callout">
-      <h3>הכלל שיציל אותך במבחן</h3>
-      <p>עדיף <b>עיקרון אחד גדול + דוגמה אחת חזקה שאתה שולט בה לגמרי</b> מאשר עשר עובדות מטושטשות. מוטב לזכור רק את רוזוולט וצ'רצ'יל היטב מאשר עשרה מנהיגים ברפרוף. תמיד תקשר בין ההמצאה הטכנולוגית לשינוי תרבותי עמוק — זה מה שמעלה מ"רשימת עובדות" לכתיבה אקדמית.</p>
+      <h3>שני "מפתחות" שמלווים את כל הקורס</h3>
+      <ul class="terms">
+        <li><b>שתי גישות מנוגדות:</b> <b>דטרמיניזם טכנולוגי</b> (הטכנולוגיה מעצבת את החברה) מול <b>הבניה חברתית</b> (החברה מעצבת איך משתמשים בטכנולוגיה). כמעט כל שאלה אפשר לנתח דרך המתח הזה.</li>
+        <li><b>מפתח המרצה (מהמייל):</b> על כל מדיום דע לומר במשפט — (1) מה <b>שינה לעומת העבר</b>, (2) איך <b>עזר לצבא</b>, (3) איך <b>מנהיגים השתמשו בו</b> לחברה ולפוליטיקה.</li>
+      </ul>
     </div>
-  </section>
-
-  <!-- MASTER TABLE -->
-  <section id="master">
-    <div class="sec-head"><div class="badge">B</div><div><h2>הטבלה המנצחת</h2><span class="sub">כל מדיום בשלושת הצירים של המרצה</span></div></div>
-    <p>שנן את הטבלה הזו יותר מכל דבר אחר. היא בלבד מספיקה כדי לבנות תשובה על כמעט כל שאלה.</p>
-    <div class="table-scroll">
-    <table>
-      <thead><tr><th>מדיום</th><th>מה שינה לעומת העבר</th><th>שימוש צבאי</th><th>מנהיגים / חברה / פוליטיקה</th></tr></thead>
-      <tbody>
-        <tr>
-          <th>הדפוס<br>(גוטנברג, 1439)</th>
-          <td>מהעברת ידע בעל-פה להפצה מהירה והמונית של טקסט זהה; קריאה לבד → חשיבה ליניארית, רציונלית, אינדיבידואלית.</td>
-          <td>סטנדרטיזציה של ידע, מדריכים והוראות מודפסות; תשתית לניהול מרוכז.</td>
-          <td>לותר והרפורמציה (1517); עליית מדינות הלאום דרך הדפסה בשפות מקומיות; לידת המרחב הציבורי (הברמס).</td>
-        </tr>
-        <tr>
-          <th>הטלגרף<br>+ רכבת (מאה 19)</th>
-          <td>ניתוק המידע מהתנועה הפיזית; "ביטול המרחב והזמן"; מידע בזמן אמת ובמהירות האור.</td>
-          <td>פיקוד ושליטה בזמן אמת מרחוק; ניהול החזית בלי לחכות לשליח על סוס; תיאום ארטילריה.</td>
-          <td>מברק אמס → מלחמת פרוסיה-צרפת; סנכרון זמן סטנדרטי; כלכלה גלובלית (קו טלגרף 1900); סוכנויות ידיעות.</td>
-        </tr>
-        <tr>
-          <th>הרדיו<br>(תור זהב, שנות 30–40)</th>
-          <td>קול אחד מגיע ישירות "לתוך הסלון" בזמן אמת; חוויה שבטית משותפת; אינטימיות המונית.</td>
-          <td>קשר אלחוטי לתיאום כוחות ניידים (טנקים, מטוסים, צוללות — בליצקריג); לוחמה אלקטרונית וניווט.</td>
-          <td><b>רוזוולט</b> (שיחות ליד האח — דמוקרטי); <b>גבלס</b> (Volksempfänger — טוטליטרי); צ'רצ'יל; נאום המלך; "מלחמת העולמות" (1938).</td>
-        </tr>
-        <tr>
-          <th>הטלוויזיה<br>(שנות 50–60)</th>
-          <td>תמונה + קול + מיידיות; "המדורה השבטית הגלובלית"; מציאות מובנית (לא משקפת אלא מעצבת).</td>
-          <td>שידור אירועים בזמן אמת ככלי דעת קהל; לוחמה פסיכולוגית ותדמיתית.</td>
-          <td>עימות <b>קנדי–ניקסון</b> (1960) — התדמית מנצחת; גלובליזציה תרבותית; פוליטיקה כמופע.</td>
-        </tr>
-        <tr>
-          <th>הדיגיטלי<br>(אינטרנט, סמארטפון)</th>
-          <td>מכל אנלוגי → ביטים; כל תוכן בשפה אחת; מ"צרכן פסיבי" ל<b>יצרן-צרכן</b> (prosumer); התכנסות מדיה.</td>
-          <td>ARPANET — רשת מבוזרת ששורדת פגיעה; GPS; לוחמת סייבר ומידע.</td>
-          <td>הון דיגיטלי ומעמד (בורדייה); הפער הדיגיטלי מאתגר את הבטחת ה"דמוקרטיזציה"; כלכלת הקשב.</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    <p style="text-align:start"><a class="up" href="#strategy">↑ חזרה למעלה</a></p>
   </section>
 
   <hr class="div">
 
-  <!-- TOPIC 1 -->
-  <section id="t1">
-    <div class="sec-head"><div class="badge">1</div><div><h2>הגישות התיאורטיות + מקלוהן</h2><span class="sub">המסגרת שמאחורי כל שאלה במבחן</span></div></div>
+  <!-- ============ LESSON 1 ============ -->
+  <section id="l1">
+    <div class="lesson">
+      <div class="head"><div class="kicker">שיעור 1</div><h3>מבוא: איך בכלל חושבים על היסטוריה של מדיה</h3></div>
+      <div class="body">
+        <div class="block intro"><span class="lab">על מה השיעור, בפשטות</span>
+          לפני שלומדים על כל מדיום בנפרד, צריך "משקפיים" — דרך חשיבה. השיעור הזה נותן את הכלים: איך חוקרים מדיה, מה השאלות ששואלים, ולמה בכלל טכנולוגיית תקשורת "משנה" משהו. זה הבסיס לכל השאר.</div>
 
-    <div class="card">
-      <div class="concept-grid">
-        <div class="kv"><span class="label">הרעיון המרכזי</span>
-          יש שתי גישות מנוגדות להסבר הקשר בין טכנולוגיה לחברה. <b>הדטרמיניזם הטכנולוגי</b> טוען שהטכנולוגיה עצמה היא הכוח המניע שמעצב את החברה ("הטכנולוגיה בורא". המדיום, לא התוכן, הוא שמחולל את השינוי). מולה, <b>גישת ההבניה החברתית</b> טוענת שהחברה, ערכיה וקבוצות הכוח שבה הן שמעצבות איך משתמשים בטכנולוגיה. במבחן — כדאי להחזיק את שתיהן ולהראה מתח ביניהן.</div>
+        <div class="block"><span class="lab">מה אני חייב לדעת מהשיעור</span>
+          <ul class="plain">
+            <li>יש <b>שתי גישות מנוגדות</b> להסביר את הקשר טכנולוגיה↔חברה — ואת שתיהן צריך להכיר.</li>
+            <li>הטענה המרכזית של הקורס באה ממקלוהן: <b>"המדיום הוא המסר"</b>.</li>
+            <li>יש <b>מודל שלבים</b> (כספי) שמתאר איך כל מדיום חדש נכנס לחברה.</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">מושגים מרכזיים</span>
+          <ul class="terms">
+            <li><b>דטרמיניזם טכנולוגי:</b> הטכנולוגיה היא הכוח המניע — עצם ההמצאה מעצבת את החברה ("הטכנולוגיה משתחררת לעולם ומתפתחת לפי היגיון פנימי"). דוגמה למשפט: "הדפוס יצר את האדם המודרני".</li>
+            <li><b>הבניה חברתית:</b> ההפך — החברה, ערכיה וקבוצות הכוח שבה קובעות איך משתמשים בטכנולוגיה. הטכנולוגיה לא "טובה" או "רעה" — היא כלי, והחברה מחליטה.</li>
+            <li><b>"המדיום הוא המסר" (מקלוהן):</b> אופיו של האמצעי משפיע יותר מהתוכן. עצם המעבר לדפוס/רדיו/מסך משנה חברה, בלי קשר למה משדרים.</li>
+            <li><b>מדיאטיזציה:</b> המדיה כבר לא רק <em>מתווכת</em> מציאות — היא <em>מהווה</em> את המציאות שאנחנו חווים.</li>
+            <li><b>המודל ההיסטורי-טכנולוגי (כספי, 1993):</b> חמישה שלבים — פריצה → התמסדות → התנגנות → הסתגלות → התלכדות.</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">דמויות וחוקרים לזכור</span>
+          <div class="people">
+            <span class="chip"><b>מרשל מקלוהן</b> — "המדיום הוא המסר"</span>
+            <span class="chip"><b>דן כספי</b> — מודל שלבי כניסת מדיום (1993)</span>
+          </div>
+        </div>
+
+        <div class="block bigq"><span class="lab">הקשר לשאלה הגדולה</span>
+          זהו השיעור שמגדיר את השאלה הגדולה עצמה. הוא נותן לך את המסגרת שדרכה תנתח <b>כל</b> מדיום בהמשך: האם השינוי בא מהטכנולוגיה או מהחברה, ואיך המדיום עצמו (לא רק תוכנו) מעצב אותנו.</div>
+
+        <div class="block ex"><span class="lab">דוגמה לשימוש במבחן</span>
+          המודל של כספי מאפשר לנתח כל מדיום: הרדיו <b>פרץ</b> בשנות ה-20, <b>התמסד</b> (רשתות שידור), עורר <b>התנגנות</b> (העיתונות נלחמה בו — הסכם בילטמור 1933), <b>הסתגל</b>, ולבסוף <b>התלכד</b> עם מדיה אחרת. שלד מוכן לשאלה על "מחזור החיים של מדיום".</div>
+
+        <div class="block q-exam"><span class="lab">איך תיראה שאלה במבחן</span>
+          "הסבירו את ההבדל בין הגישה הדטרמיניסטית-טכנולוגית לגישת ההבניה החברתית, והדגימו את שתיהן על מדיום אחד לבחירתכם."</div>
+
+        <div class="block skel"><span class="lab">שלד תשובה לפיתוח</span>
+          <ol>
+            <li>הגדר את שתי הגישות (2–3 משפטים כל אחת).</li>
+            <li>בחר מדיום — למשל הרדיו.</li>
+            <li>צד דטרמיניסטי: עצם הרדיו יצר קשר ישיר מנהיג–אזרח.</li>
+            <li>צד הבניה חברתית: אותו רדיו שימש לדמוקרטיה (רוזוולט) ולדיקטטורה (גבלס) — החברה החליטה.</li>
+            <li>סיכום: האמת מורכבת — שתי הגישות משלימות.</li>
+          </ol>
+        </div>
       </div>
-      <ul class="terms">
-        <li><b>"המדיום הוא המסר" (מקלוהן):</b> אופיו של אמצעי התקשורת משפיע יותר מהתוכן שעובר בו. עצם המעבר לדפוס/רדיו/מסך משנה חברה, בלי קשר למה משדרים.</li>
-        <li><b>מדיה חמה מול קרה (מקלוהן):</b> מדיה "חמה" מפעילה חוש אחד ברזולוציה גבוהה ותובעת מעורבות נמוכה (רדיו, דפוס); מדיה "קרה" דורשת השתתפות והשלמה של הצופה.</li>
-        <li><b>הכפר הגלובלי:</b> החשמל/המדיה האלקטרונית מחזירים אותנו למצב "שבטי" — חוויה משותפת מיידית בקנה מידה עולמי.</li>
-        <li><b>המודל ההיסטורי-טכנולוגי (כספי, 1993):</b> כל מדיום חדש עובר שלבים — <b>פריצה</b> → <b>התמסדות</b> (מוסדות נבנים סביבו) → <b>התנגנות</b> (מוסדות ותיקים נלחמים בו) → <b>הסתגלות</b> → <b>התלכדות</b> (מיזוג עם מדיה קיימת).</li>
-      </ul>
-      <div class="exam-tip"><span class="label">איך להפוך את זה לתשובה</span>
-        פתח כל תשובה על מעבר טכנולוגי בהצהרה דטרמיניסטית ("לפי הגישה הדטרמיניסטית-טכנולוגית, עצם ההמצאה של X עיצבה מחדש את החברה מעבר לתוכן שהעבירה") — ואז הדגם. אם רוצים ניתוח מורכב, הוסף את קול ההבניה החברתית כביקורת.</div>
     </div>
   </section>
 
-  <!-- TOPIC 2 -->
-  <section id="t2">
-    <div class="sec-head"><div class="badge">2</div><div><h2>הדפוס וגוטנברג</h2><span class="sub">שאלת הדוגמה הרשמית #1 יושבת כאן</span></div></div>
-    <div class="card">
-      <div class="concept-grid">
-        <div class="kv"><span class="label">הרעיון המרכזי</span>
-          מכבש הדפוס (גוטנברג, 1439) הפך את העברת הידע מ<b>תרבות אוראלית</b> (בעל-פה, זיכרון, קהילתי) לתרבות של טקסט מודפס זהה ומופץ בהמוניו. השינוי הזה — לפי מקלוהן, "גלקסיית גוטנברג" — לא רק הפיץ מידע, אלא <b>שינה את דרכי החשיבה עצמן</b>.</div>
+  <!-- ============ LESSON 2 ============ -->
+  <section id="l2">
+    <div class="lesson">
+      <div class="head"><div class="kicker">שיעור 2</div><h3>מהפכת הדפוס והמרחב הציבורי</h3></div>
+      <div class="body">
+        <div class="block intro"><span class="lab">על מה השיעור, בפשטות</span>
+          לפני הדפוס, ידע עבר בעיקר <b>בעל-פה</b> או בכתב-יד יקר שרק מעטים החזיקו. בשנת 1439 גוטנברג המציא את מכבש הדפוס — ופתאום אפשר לייצר אלפי עותקים זהים של טקסט בזול ובמהירות. השיעור מראה שזו לא רק "המצאה נחמדה" אלא אירוע ש<b>שינה את כל העולם המערבי</b>.</div>
+
+        <div class="block"><span class="lab">מה אני חייב לדעת מהשיעור</span>
+          <ul class="plain">
+            <li>המעבר מ<b>תרבות אוראלית</b> (בעל-פה) ל<b>תרבות דפוס</b> שינה את <em>דרך החשיבה</em>, לא רק את כמות המידע.</li>
+            <li>שלושה שינויים ענקיים נבעו מהדפוס: <b>דתי</b> (רפורמציה), <b>לאומי</b> (מדינות הלאום), <b>אישי</b> (אינדיבידואליזם).</li>
+            <li>נולד <b>"המרחב הציבורי"</b> — מקום של דיון ציבורי-ביקורתי.</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">מושגים מרכזיים</span>
+          <ul class="terms">
+            <li><b>תרבות אוראלית מול תרבות דפוס:</b> מעבר מזיכרון והקשבה קבוצתית — לקריאה שקטה, לבד.</li>
+            <li><b>"גלקסיית גוטנברג" (מקלוהן):</b> הדפוס יצר חשיבה <b>ליניארית, לוגית, רציונלית</b> ("שורת דפוס") ואת ה<b>אינדיבידואל</b> (הקורא מתנתק מהקבוצה).</li>
+            <li><b>הרפורמציה:</b> לותר תלה את 95 התזות (1517), הדפוס הפיצן במהירות → החלשת הכנסייה הקתולית.</li>
+            <li><b>לאומיות / "קהילות מדומיינות" (אנדרסון):</b> הדפסה בשפות מקומיות (לא רק לטינית) יצרה אחידות לשונית → תחושת שייכות לאומה של מיליונים שמעולם לא נפגשו.</li>
+            <li><b>המרחב הציבורי (הברמס):</b> עיתונים וספרים בבתי קפה יצרו זירת דיון רציונלי; הפיכת "נתינים" ל"אזרחים".</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">טיימליין</span>
+          <div class="mini-tl">
+            <div><span class="yr">1439</span><span>גוטנברג ממציא את מכבש הדפוס</span></div>
+            <div><span class="yr">1492</span><span>קולומבוס — עידן התגליות (רקע)</span></div>
+            <div><span class="yr">1517</span><span>לותר והרפורמציה — הדפוס מפיץ את המהפכה</span></div>
+            <div><span class="yr">מאה 18</span><span>שיא המרחב הציבורי הבורגני</span></div>
+          </div>
+        </div>
+
+        <div class="block"><span class="lab">דמויות, חוקרים והמצאות</span>
+          <div class="people">
+            <span class="chip"><b>גוטנברג</b> — מכבש הדפוס</span>
+            <span class="chip"><b>מרטין לותר</b> — הרפורמציה</span>
+            <span class="chip"><b>מקלוהן</b> — גלקסיית גוטנברג</span>
+            <span class="chip"><b>הברמס</b> — המרחב הציבורי</span>
+            <span class="chip"><b>בנדיקט אנדרסון</b> — קהילות מדומיינות</span>
+          </div>
+        </div>
+
+        <div class="block bigq"><span class="lab">הקשר לשאלה הגדולה</span>
+          זו הדוגמה הקלאסית ל"המדיום הוא המסר": לא <em>מה</em> הודפס שינה את העולם, אלא <em>עצם הדפוס</em>. וגם כאן — הדפוס הבטיח הפצת ידע לכולם, אבל בתחילה שבר מבנה כוח ישן (הכנסייה) ובנה חדשים (מדינת הלאום). דמוקרטיזציה מול כוח.</div>
+
+        <div class="block ex"><span class="lab">דוגמאות למבחן</span>
+          <b>הרפורמציה</b> (הדוגמה הפוליטית-דתית החזקה ביותר). <b>הסרט "שם הוורד":</b> מנזר ימי-ביניימי שבו הכנסייה שולטת בידע ומסתירה ספר — ממחיש בדיוק מה הדפוס שבר: כשידע מפסיק להיות נחלת מעטים, נשבר מבנה הכוח.</div>
+
+        <div class="block q-exam"><span class="lab">איך תיראה שאלה במבחן</span>
+          "הסבירו כיצד מעבר מתרבות אוראלית לתרבות דפוס שינה את החברה. התייחסו לשינוי הקוגניטיבי, הדתי-פוליטי והלאומי." (זו שאלת הדוגמה הרשמית #1, בשילוב מקלוהן.)</div>
+
+        <div class="block skel"><span class="lab">שלד תשובה לפיתוח</span>
+          <ol>
+            <li>פתיחה: הדפוס (גוטנברג, 1439) כ"מפץ הגדול" של המודרניות.</li>
+            <li>הסבר המעבר אוראלי → דפוס וההשלכה הקוגניטיבית (חשיבה ליניארית, אינדיבידואל).</li>
+            <li>שלושה שינויים: רפורמציה (דתי) · מדינות הלאום (לאומי) · מרחב ציבורי (פוליטי).</li>
+            <li>סיכום: המצאה טכנית → שינוי תרבותי עמוק. המדיום הוא המסר.</li>
+          </ol>
+        </div>
       </div>
-      <ul class="terms">
-        <li><b>שינוי קוגניטיבי:</b> הקריאה בספר, לבד ובשקט, החליפה חשיבה שמיעתית-קבוצתית בחשיבה <b>לוגית, ליניארית ורציונלית</b> ("שורת דפוס").</li>
-        <li><b>אינדיבידואליזם:</b> "מדיום אישי" — הקורא מתנתק מהקבוצה לטובת חשיבה עצמאית.</li>
-        <li><b>לאומיות / מדינות הלאום:</b> הדפסה בשפות מקומיות (ולא רק בלטינית) יצרה אחידות לשונית → "קהילות מדומיינות" (אנדרסון) של מיליונים.</li>
-        <li><b>רפורמציה:</b> לותר תלה את 95 התזות (1517) והדפוס הפיצן במהירות → החלשת כוח הכנסייה הקתולית.</li>
-        <li><b>המרחב הציבורי (הברמס):</b> עיתונים וספרים בבתי קפה יצרו מרחב של דיון רציונלי-ביקורתי; הפיכת "נתינים" ל"אזרחים".</li>
-      </ul>
-      <div class="kv plum"><span class="label">דוגמה תרבותית — "שם הוורד"</span>
-        הסרט/הספר מתרחש במנזר של ימי הביניים, שבו הכנסייה <b>שולטת בידע</b> ומסתירה ספר מסוכן. זו מדגימה בדיוק את מה שהדפוס שבר: כשהידע מפסיק להיות נחלת מעטים ששולטים בו, נשבר מבנה הכוח הישן.</div>
-      <div class="exam-tip"><span class="label">איך להפוך את זה לתשובה</span>
-        זו התשובה הבטוחה ביותר במבחן. מבנה: הצהרה דטרמיניסטית → הסבר המעבר אוראלי→דפוס → שלושה שינויים קונקרטיים (רפורמציה, לאומיות, אינדיבידואליזם) → משפט סיכום שקושר המצאה טכנית לשינוי תרבותי עמוק. תשובה מלאה בפרק התשובות למטה.</div>
     </div>
   </section>
 
-  <!-- TOPIC 3 -->
-  <section id="t3">
-    <div class="sec-head"><div class="badge">3</div><div><h2>הטלגרף והרכבת</h2><span class="sub">ביטול מגבלות המרחב והזמן</span></div></div>
-    <div class="card">
-      <div class="concept-grid">
-        <div class="kv"><span class="label">הרעיון המרכזי</span>
-          עד הטלגרף, מהירות המידע = מהירות התחבורה (סוס, ספינה). הטלגרף <b>הפריד בין המידע (Information) לתנועה הפיזית (Transportation)</b> — ולראשונה מידע נע במהירות האור, בזמן אמת, מנותק ממיקום. זהו "ביטול המרחב והזמן".</div>
+  <!-- ============ LESSON 3 ============ -->
+  <section id="l3">
+    <div class="lesson">
+      <div class="head"><div class="kicker">שיעור 3</div><h3>הטלגרף, הרכבת והעיתונות: ביטול המרחב והזמן</h3></div>
+      <div class="body">
+        <div class="block intro"><span class="lab">על מה השיעור, בפשטות</span>
+          עד אמצע המאה ה-19, מידע נסע במהירות של סוס או ספינה — אם רצית לשלוח הודעה לרחוק, מישהו היה צריך <em>פיזית</em> לנסוע. הטלגרף (חשמלי) שבר את זה: לראשונה בהיסטוריה, <b>מידע נע מהר יותר מבני אדם</b> — במהירות האור. בו-זמנית, הרכבת קיצרה מרחקים והעיתונות הפכה למדיה המונית. השיעור על מה קורה כשמרחק וזמן מפסיקים להיות מכשול.</div>
+
+        <div class="block"><span class="lab">מה אני חייב לדעת מהשיעור</span>
+          <ul class="plain">
+            <li>הטלגרף <b>הפריד בין המידע (Information) לתנועה הפיזית (Transportation)</b> — זה הרעיון המרכזי של כל השיעור.</li>
+            <li>זה יצר <b>"ביטול המרחב והזמן"</b>: זמן סטנדרטי, שוק כלכלי גלובלי, ופיקוד צבאי בזמן אמת.</li>
+            <li>העיתונות הפכה מגיליונות יקרים ל<b>תקשורת המונים</b> זולה, עם סוכנויות ידיעות שרוכבות על רשת הטלגרף.</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">מושגים מרכזיים</span>
+          <ul class="terms">
+            <li><b>הפרדת מידע מתנועה פיזית:</b> הלב של השיעור. לפני הטלגרף, מידע = מהירות התחבורה. אחרי — מידע נע לבד.</li>
+            <li><b>ביטול המרחב והזמן:</b> אירוע נודע בכל העולם תוך דקות; "העולם ככפר קטן".</li>
+            <li><b>זמן סטנדרטי / סנכרון:</b> לפני הרכבת לכל עיר היה "זמן מקומי" לפי השמש. הרכבת+טלגרף חייבו זמן אחיד — שינוי תודעתי.</li>
+            <li><b>פיקוד ושליטה (Command &amp; Control):</b> מעבר מ"שליטה איטית" (שליח על סוס) ל"שליטה בזמן אמת" מרחוק.</li>
+            <li><b>סוכנויות ידיעות:</b> AP, Reuters — קמו כדי לנצל את הטלגרף ולהפיץ ידיעות במהירות. כאן נולד סגנון הדיווח החדשותי (מי, מה, מתי, איפה).</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">טיימליין</span>
+          <div class="mini-tl">
+            <div><span class="yr">מאה 19</span><span>הטלגרף החשמלי + התפשטות הרכבת</span></div>
+            <div><span class="yr">1870</span><span>"מברק אמס" → זירוז מלחמת פרוסיה–צרפת</span></div>
+            <div><span class="yr">סוף מאה 19</span><span>העיתון הופך לכלי תקשורת מרכזי (פרסום, דפוס זול)</span></div>
+            <div><span class="yr">1/9/1900</span><span>קו טלגרף ישיר גרמניה–ארה"ב → מסחר גלובלי</span></div>
+          </div>
+        </div>
+
+        <div class="block"><span class="lab">דמויות, אירועים והמצאות</span>
+          <div class="people">
+            <span class="chip"><b>הטלגרף</b> — קשר חשמלי מיידי</span>
+            <span class="chip"><b>הרכבת</b> — כיווץ מרחב</span>
+            <span class="chip"><b>מברק אמס</b> (ביסמרק) — טלגרף כנשק פוליטי</span>
+            <span class="chip"><b>AP / Reuters</b> — סוכנויות ידיעות</span>
+          </div>
+        </div>
+
+        <div class="block bigq"><span class="lab">הקשר לשאלה הגדולה</span>
+          דוגמה מושלמת ל"המדיום הוא המסר": התוכן של המברקים לא חשוב — <b>עצם המהירות</b> שינתה הכול (כלכלה, צבא, תפיסת זמן). זה גם השיעור הכי חזק ל"מפתח המרצה": שינוי לעומת העבר (מהירות) + צבא (פיקוד בזמן אמת) + חברה/כלכלה (שוק גלובלי).</div>
+
+        <div class="block ex"><span class="lab">דוגמאות למבחן</span>
+          <b>מברק אמס:</b> ביסמרק ניצל הודעת טלגרף כדי לזרז מלחמה — הטלגרף איפשר לתמרן דעת קהל במהירות. <b>קו הטלגרף 1900:</b> מחיר סחורה נקבע בזמן אמת בבורסה מרכזית → שוק אחיד גלובלי.</div>
+
+        <div class="block q-exam"><span class="lab">איך תיראה שאלה במבחן</span>
+          "הטלגרף והרכבת 'ביטלו את המרחב והזמן'. הסבירו מדוע הפרדת המידע מהתנועה הפיזית הייתה מהפכנית, והדגימו את ההשפעה על הצבא ועל הכלכלה."</div>
+
+        <div class="block skel"><span class="lab">שלד תשובה לפיתוח</span>
+          <ol>
+            <li>פתיחה: לפני הטלגרף מהירות מידע = מהירות התחבורה.</li>
+            <li>מושג מפתח: הפרדת מידע מתנועה פיזית → מהירות האור.</li>
+            <li>שלוש השלכות: קוגניטיבי (זמן סטנדרטי) · צבאי (פיקוד בזמן אמת, מברק אמס) · כלכלי (שוק גלובלי, קו 1900).</li>
+            <li>סיכום: המהירות היא ה"מסר" — לא תוכן המברקים.</li>
+          </ol>
+        </div>
       </div>
-      <ul class="terms">
-        <li><b>סנכרון הזמן:</b> לפני הרכבת לכל עיר היה "זמן מקומי" לפי השמש. הרכבת+טלגרף חייבו זמן סטנדרטי אחיד — שינוי תודעתי עמוק.</li>
-        <li><b>"העולם ככפר קטן":</b> המרחק מפסיק להיות מכשול; אירוע במקום אחד נודע בכל העולם תוך דקות.</li>
-        <li><b>לוחמה — פיקוד ושליטה:</b> מ"שליטה איטית" (שליח על סוס) ל"שליטה בזמן אמת" — הדרג הגבוה מנהל את החזית מרחוק.</li>
-        <li><b>כלכלה גלובלית:</b> מחיר סחורה נקבע בבורסה מרכזית בזמן אמת → שוק אחיד וגלובלי. קו הטלגרף גרמניה–ארה"ב (1900).</li>
-        <li><b>סוכנויות ידיעות:</b> AP, Reuters קמו כדי לנצל את רשת הטלגרף ולהפיץ ידיעות במהירות לעולם.</li>
-      </ul>
-      <div class="kv plum"><span class="label">דוגמה היסטורית — מברק אמס</span>
-        ביסמרק ניצל הודעת טלגרף ("מברק אמס") כדי לזרז את מלחמת פרוסיה–צרפת. הטלגרף אפשר לתמרן דעת קהל ולפתוח מלחמה במהירות שלא הייתה אפשרית קודם.</div>
-      <div class="exam-tip"><span class="label">איך להפוך את זה לתשובה</span>
-        המושג המנצח כאן הוא "הפרדת המידע מהתנועה הפיזית". בנה סביבו: קוגניטיבי (סנכרון זמן) + צבאי (פיקוד בזמן אמת) + כלכלי (שוק גלובלי). זו דוגמה מושלמת ל"המדיום הוא המסר" — עצם המהירות שינתה הכול, לא התוכן של המברקים.</div>
     </div>
   </section>
 
-  <!-- TOPIC 4 -->
-  <section id="t4">
-    <div class="sec-head"><div class="badge">4</div><div><h2>הצילום והקולנוע</h2><span class="sub">מייצוג המציאות ל"מציאות" מובנית</span></div></div>
-    <div class="card">
-      <div class="concept-grid">
-        <div class="kv"><span class="label">הרעיון המרכזי</span>
-          הצילום (1839) והקולנוע העבירו אותנו מייצוג סובייקטיבי (ציור) לתיעוד ש<b>נראה</b> אובייקטיבי — אבל למעשה תמיד עבר בחירה, עריכה ואידיאולוגיה. הקולנוע לא "חלון למציאות" אלא <b>גרסה</b> מעוצבת שלה.</div>
+  <!-- ============ LESSON 4-5 ============ -->
+  <section id="l4">
+    <div class="lesson">
+      <div class="head"><div class="kicker">שיעורים 4–5</div><h3>לידת התקשורת החזותית: מצילום לקולנוע</h3></div>
+      <div class="body">
+        <div class="block intro"><span class="lab">על מה השיעור, בפשטות</span>
+          עד המאה ה-19, הדרך היחידה "לתפוס" מציאות בתמונה הייתה ציור — שהוא סובייקטיבי לגמרי. הצילום (1839) שינה זאת: פתאום מכשיר "מתעד" מציאות באופן ש<b>נראה</b> אובייקטיבי. הקולנוע (סוף המאה) הוסיף תנועה וזמן. השיעור מראה שהתמונה לעולם אינה "חלון תמים למציאות" — היא תמיד <b>גרסה</b> ערוכה ונבחרת שלה.</div>
+
+        <div class="block"><span class="lab">מה אני חייב לדעת מהשיעור</span>
+          <ul class="plain">
+            <li>מעבר מייצוג <b>סובייקטיבי</b> (ציור) לייצוג ש<b>נראה אובייקטיבי</b> (צילום) — אבל תמיד עובר בחירה ועריכה.</li>
+            <li>התיאוריה המרכזית: <b>ולטר בנימין</b> — "יצירת האמנות בעידן השעתוק הטכני" והמושג <b>אאורה</b>.</li>
+            <li>הקולנוע לא משקף מציאות — הוא <b>מבנה</b> אותה (בחירת פריים, עריכה, "גרסה").</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">מושגים מרכזיים</span>
+          <ul class="terms">
+            <li><b>אאורה (בנימין):</b> ה"הילה" של יצירת אמנות חד-פעמית וייחודית. ברגע שאפשר לשכפל אינסוף עותקים (צילום, קולנוע) — האאורה נעלמת.</li>
+            <li><b>שעתוק טכני:</b> ייצור המוני של עותקים זהים. מצד אחד <b>דמוקרטיזציה של האמנות</b> (נגישה לכולם), מצד שני אובדן הייחודיות.</li>
+            <li><b>הבניית מציאות:</b> "המצלמה אינה משקרת" — אך גם אינה ניטרלית. יש בחירת פריים, זווית, עריכה.</li>
+            <li><b>מדיאטיזציה:</b> המדיה מהווה את המציאות שאנו חווים, לא רק מתווכת אותה.</li>
+            <li><b>שימושים וסיפוקים (U&amp;G, 1974):</b> הצופה <b>פעיל</b> ובוחר מדיה כדי לספק צרכים — קוגניטיביים (למידה), רגשיים, זהות, ו<b>אסקפיזם</b> (בריחה מהמציאות).</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">טיימליין</span>
+          <div class="mini-tl">
+            <div><span class="yr">מאה 4 לפנה"ס</span><span>קמרה אובסקורה — התופעה האופטית מתוארת</span></div>
+            <div><span class="yr">1839</span><span>המצאת הצילום (דאגר/נייפס) — הכרזה רשמית</span></div>
+            <div><span class="yr">1895</span><span>ההקרנות הראשונות — לידת הקולנוע</span></div>
+            <div><span class="yr">1927</span><span>"זמר הג'אז" — הקולנוע המדבר (Talkies)</span></div>
+            <div><span class="yr">שנות 30</span><span>בנימין כותב על "השעתוק הטכני"</span></div>
+          </div>
+        </div>
+
+        <div class="block"><span class="lab">דמויות, חוקרים והמצאות</span>
+          <div class="people">
+            <span class="chip"><b>ולטר בנימין</b> — אאורה, שעתוק טכני</span>
+            <span class="chip"><b>קמרה אובסקורה</b> — אב-טיפוס המצלמה</span>
+            <span class="chip"><b>דאגר / נייפס</b> — הצילום (1839)</span>
+            <span class="chip"><b>גישת U&amp;G</b> — הצופה הפעיל (1974)</span>
+          </div>
+        </div>
+
+        <div class="block bigq"><span class="lab">הקשר לשאלה הגדולה</span>
+          כאן השאלה הגדולה מקבלת פן חדש: המדיה לא רק מפיצה מידע — היא מעצבת את <b>תפיסת המציאות והאמת</b> שלנו. וגם כאן הדמוקרטיזציה כפולת-פנים: בנימין ראה בשעתוק פתח לאמנות נגישה לכולם, אבל במחיר אובדן הייחודיות והאותנטיות.</div>
+
+        <div class="block ex"><span class="lab">דוגמאות למבחן</span>
+          <b>"רשימת שינדלר":</b> צילום שחור-לבן מדומה כ"תיעוד" — הבנייה שנראית אובייקטיבית. <b>"המופע של טרומן" / "להיות שם" / "סימונה":</b> מטשטשים את הגבול בין מציאות אמיתית למתוקשרת (היפר-ריאליות) — הצופה כבר לא יודע מה אמיתי.</div>
+
+        <div class="block q-exam"><span class="lab">איך תיראה שאלה במבחן</span>
+          "בנימין טען שהשעתוק הטכני גורם ליצירה לאבד את ה'אאורה'. הגדירו את המושגים, הדגימו דרך הצילום והקולנוע, והסבירו מדוע זו גם דמוקרטיזציה — ומהו המחיר."</div>
+
+        <div class="block skel"><span class="lab">שלד תשובה לפיתוח</span>
+          <ol>
+            <li>הגדר "אאורה" ו"שעתוק טכני".</li>
+            <li>הדגם: הצילום/הקולנוע ניתנים לשכפול אינסופי → אין מקור ייחודי.</li>
+            <li>הצד החיובי: אמנות נגישה להמונים (דמוקרטיזציה).</li>
+            <li>המחיר: אובדן ייחודיות, אותנטיות, טשטוש "אמת".</li>
+            <li>סיכום עם דוגמת סרט (טרומן/שינדלר).</li>
+          </ol>
+        </div>
       </div>
-      <ul class="terms">
-        <li><b>ולטר בנימין — "יצירת האמנות בעידן השעתוק הטכני":</b> ברגע שאפשר לשכפל יצירה אינסוף פעמים (צילום, קולנוע), היא מאבדת את ה<b>"אאורה"</b> — ההילה של יצירה חד-פעמית וייחודית. מצד שני, זו <b>דמוקרטיזציה של האמנות</b> — נגישה להמונים.</li>
-        <li><b>מדיאטיזציה (mediatization):</b> המדיה כבר לא רק מתווכת מציאות — היא <b>מהווה</b> את המציאות שאנו חווים; חיינו ספוגים במסכים.</li>
-        <li><b>הבניית מציאות:</b> בחירת פריים, זווית, עריכה ו"גרסה" של המציאות; המצלמה "אינה משקרת" אך גם אינה נייטרלית.</li>
-        <li><b>שימושים וסיפוקים (U&G, 1974):</b> הצופה <b>פעיל</b> — בוחר מדיה כדי לספק צרכים (קוגניטיביים=למידה, רגשיים, זהות/חיזוק ערכים, בריחה מהמציאות/אסקפיזם).</li>
-      </ul>
-      <div class="kv plum"><span class="label">דוגמאות תרבותיות</span>
-        <b>"רשימת שינדלר":</b> צילום שחור-לבן מדומה כ"תיעוד" — הבנייה אובייקטיבית לכאורה. <b>"המופע של טרומן" / "להיות שם" / "סימונה":</b> מטשטשים את הגבול בין מציאות אמיתית לבין מציאות מתוקשרת (היפר-ריאליות).</div>
-      <div class="exam-tip"><span class="label">איך להפוך את זה לתשובה</span>
-        אם השאלה על צילום/קולנוע — בנימין ("אאורה", שעתוק, דמוקרטיזציה) הוא הליבה. אם השאלה על "אמת" ומציאות — השתמש ב"הבניית מציאות" + מדיאטיזציה + דוגמת סרט. תמיד הצג את המתח: הרחבת נגישות מול אובדן ייחודיות/אמינות.</div>
     </div>
   </section>
 
-  <!-- TOPIC 5 -->
-  <section id="t5">
-    <div class="sec-head"><div class="badge">5</div><div><h2>הרדיו</h2><span class="sub">הדוגמה שהמרצה אמר לזכור: מנהיגים</span></div></div>
-    <div class="card">
-      <div class="concept-grid">
-        <div class="kv amber"><span class="label">הרעיון המרכזי</span>
-          הרדיו הביא <b>קול אחד ישירות לתוך הסלון</b> של מיליונים בו-זמנית. הוא יצר "מדורה שבטית" — חוויה משותפת בזמן אמת — והפך לכלי החזק ביותר לעיצוב דעת קהל, גיוס העורף ולידת הפוליטיקה המודרנית. זו הדוגמה שהמרצה הדגיש במפורש.</div>
+  <!-- ============ LESSON 6-7 ============ -->
+  <section id="l5">
+    <div class="lesson">
+      <div class="head"><div class="kicker">שיעורים 6–7</div><h3>הרדיו ועיצוב תרבות ההמונים</h3></div>
+      <div class="body">
+        <div class="block intro"><span class="lab">על מה השיעור, בפשטות</span>
+          הרדיו היה הפעם הראשונה ש<b>קול אנושי אחד</b> יכול להגיע בו-זמנית לתוך הסלון של מיליוני אנשים, בזמן אמת. תאר לעצמך עולם בלי טלוויזיה ואינטרנט — הרדיו היה "המדורה" שכל המשפחה התאספה סביבה בערב. השיעור על איך הכלי הזה עיצב פוליטיקה, גייס עמים למלחמה, ו<b>למה הוא שורד עד היום</b>. <b>זה השיעור שהמרצה הדגיש במפורש במייל.</b></div>
+
+        <div class="block"><span class="lab">מה אני חייב לדעת מהשיעור</span>
+          <ul class="plain">
+            <li>הרדיו יצר <b>קשר ישיר ואינטימי</b> בין מנהיג לאזרח — "לתוך הסלון".</li>
+            <li>אותו כלי שירת <b>שני שימושים פוליטיים הפוכים</b>: דמוקרטי (רוזוולט) וטוטליטרי (גבלס).</li>
+            <li>צריך לדעת את <b>5 הסיבות שהרדיו שורד</b> עד היום — ואת חשיבותו הצבאית.</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">מושגים מרכזיים</span>
+          <ul class="terms">
+            <li><b>המדורה השבטית (מקלוהן):</b> הרדיו מחזיר את החברה למצב "שבטי" — חוויה רגשית משותפת. הרדיו הוא <b>"מדיה חם"</b>: מפעיל חוש אחד (שמיעה) באינטנסיביות.</li>
+            <li><b>המודל הדמוקרטי — רוזוולט:</b> "שיחות ליד האח" (Fireside Chats). טון אישי, בונה אמון, הופך נתינים לאזרחים.</li>
+            <li><b>המודל הטוטליטרי — גבלס:</b> "מקלט העם" (Volksempfänger) — רדיו זול ומוגבל בתדרים, שהתעמולה הנאצית תגיע לכל בית ותמנע האזנה לתחנות זרות.</li>
+            <li><b>המודל ההיפודרמי ("מזרק") / אסכולת פרנקפורט:</b> תפיסה מוקדמת של תקשורת כמזריקה מסרים לקהל פסיבי חסר יכולת תגובה.</li>
+            <li><b>אינטראקציה פארא-חברתית:</b> תחושת "חבר" אישי מצד המאזין כלפי הקול ברדיו — סוד ההישרדות שלו.</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">טיימליין</span>
+          <div class="mini-tl">
+            <div><span class="yr">1901</span><span>מרקוני — שידור רדיו ראשון חוצה אוקיינוס</span></div>
+            <div><span class="yr">שנות 30</span><span>תור הזהב של הרדיו; "שיחות ליד האח" של רוזוולט</span></div>
+            <div><span class="yr">1933</span><span>הסכם בילטמור — העיתונות "נלחמת" ברדיו</span></div>
+            <div><span class="yr">1938</span><span>"מלחמת העולמות" (אורסון וולס) — פאניקה</span></div>
+            <div><span class="yr">מל"ע-2</span><span>גבלס והתעמולה הנאצית; קשר אלחוטי בקרב</span></div>
+          </div>
+        </div>
+
+        <div class="block"><span class="lab">דמויות, חוקרים והמצאות</span>
+          <div class="people">
+            <span class="chip"><b>רוזוולט (FDR)</b> — המודל הדמוקרטי</span>
+            <span class="chip"><b>גבלס</b> — המודל הטוטליטרי, Volksempfänger</span>
+            <span class="chip"><b>צ'רצ'יל</b> — גיוס העורף</span>
+            <span class="chip"><b>אורסון וולס</b> — מלחמת העולמות 1938</span>
+            <span class="chip"><b>מקלוהן</b> — מדיה חם, מדורה שבטית</span>
+          </div>
+        </div>
+
+        <div class="block bigq"><span class="lab">הקשר לשאלה הגדולה</span>
+          הרדיו הוא ההוכחה הכי חדה למתח <b>דטרמיניזם מול הבניה חברתית</b>: מבחינה דטרמיניסטית, עצם הרדיו יצר את אפשרות הקשר הישיר מנהיג-אזרח. אך מבחינת ההבניה החברתית — <b>אותה טכנולוגיה בדיוק</b> ביססה דמוקרטיה בארה"ב ודיקטטורה בגרמניה. החברה החליטה.</div>
+
+        <div class="block ex"><span class="lab">דוגמאות למבחן</span>
+          <b>רוזוולט מול גבלס</b> (הדוגמה המנצחת — אותו כלי, שני שימושים הפוכים). <b>"מלחמת העולמות" (1938):</b> שידור בדוי של פלישת חייזרים שהאמינו לו — הוכחה לכוח הרדיו וחשיבות האוריינות התקשורתית. <b>"נאום המלך":</b> הרדיו דורש קול חי; קול מהוסס = מנהיגות מהוססת.</div>
+
+        <div class="block q-exam"><span class="lab">איך תיראה שאלה במבחן</span>
+          "הרדיו היה כלי מרכזי הן בידי מנהיג דמוקרטי והן בידי משטר טוטליטרי. הסבירו כיצד שינה את מהות המנהיגות, השוו בין רוזוולט לגבלס, ומה זה מלמד על היחס בין טכנולוגיה לחברה."</div>
+
+        <div class="block skel"><span class="lab">שלד תשובה לפיתוח</span>
+          <ol>
+            <li>פתיחה: הרדיו = קול חי ישירות לסלון, בו-זמנית, בלי תיווך.</li>
+            <li>המהפך במנהיגות: אינטימיות המונית (מקלוהן, מדיה חם).</li>
+            <li>רוזוולט (דמוקרטי, אמון) מול גבלס (טוטליטרי, מזרק/Volksempfänger).</li>
+            <li>ניתוח: דטרמיניזם (הכלי אִפשר) מול הבניה חברתית (החברה כיוונה).</li>
+            <li>סיכום: טכנולוגיה = כוח פוליטי, אך כיוונה נקבע בידי מי שאוחז בה.</li>
+          </ol>
+        </div>
       </div>
-      <ul class="terms">
-        <li><b>המודל הדמוקרטי — רוזוולט (FDR):</b> "שיחות ליד האח" (Fireside Chats) — טון אישי, בטוח, בונה אמון; הפך "נתינים" ל"אזרחים" שמשתתפים.</li>
-        <li><b>המודל הטוטליטרי — גבלס:</b> "מקלט העם" (Volksempfänger) — רדיו זול ומוגבל לתדרים כדי שהתעמולה הנאצית תגיע לכל בית ותמנע האזנה לתחנות זרות. תעמולה = הזרקת מסרים לקהל פסיבי.</li>
-        <li><b>מקלוהן — הרדיו כ"מדיה חם":</b> מפעיל חוש אחד (שמיעה) באופן אינטנסיבי; מחזיר את החברה למצב "שבטי" רגשי ומאחד.</li>
-        <li><b>אסכולת פרנקפורט / מודל היפודרמי:</b> תפיסה מוקדמת של תקשורת כ"מזרק" שמזריק מסרים ישירות לקהל חסר יכולת תגובה.</li>
-        <li><b>לוחמה:</b> קשר אלחוטי איפשר תיאום כוחות ניידים (בליצקריג — טנקים, מטוסים, צוללות); לוחמה אלקטרונית (שיבוש vs ריגול).</li>
-      </ul>
-      <div class="kv plum"><span class="label">דוגמאות תרבותיות</span>
-        <b>"מלחמת העולמות" (אורסון וולס, 1938):</b> שידור רדיו בדוי של פלישת חייזרים שהאמינו לו — הוכחה לכוח הרדיו וחשיבות האוריינות התקשורתית. <b>"נאום המלך":</b> הרדיו דורש "קול חי", הופך את השידור למרחב אישי; קול מהוסס = מנהיגות מהוססת.</div>
-      <div class="exam-tip"><span class="label">איך להפוך את זה לתשובה</span>
-        שאלה על רדיו כמעט בוודאות תיגע במנהיגים. ההשוואה <b>רוזוולט (דמוקרטי) מול גבלס (טוטליטרי)</b> היא תשובה מנצחת: אותו כלי טכנולוגי — שני שימושים פוליטיים הפוכים. זה גם מדגים יפה את גישת ההבניה החברתית (החברה מחליטה איך להשתמש בטכנולוגיה).</div>
     </div>
   </section>
 
-  <!-- TOPIC 6 -->
-  <section id="t6">
-    <div class="sec-head"><div class="badge">6</div><div><h2>הטלוויזיה</h2><span class="sub">המדורה השבטית הגלובלית</span></div></div>
-    <div class="card">
-      <div class="concept-grid">
-        <div class="kv"><span class="label">הרעיון המרכזי</span>
-          הטלוויזיה הוסיפה <b>תמונה + קול + מיידיות</b> והפכה את העולם ל"מדורה שבטית גלובלית" — מיליונים צופים באותו אירוע בו-זמנית. מושג מפתח: <b>הבניית מציאות</b> — הטלוויזיה לא רק משקפת מציאות אלא מעצבת אותה (קובעת אילו נושאים חשובים = Agenda Setting).</div>
+  <!-- ============ LESSON 8-9 ============ -->
+  <section id="l6">
+    <div class="lesson">
+      <div class="head"><div class="kicker">שיעורים 8–9</div><h3>עידן הטלוויזיה: המדורה השבטית הגלובלית</h3></div>
+      <div class="body">
+        <div class="block intro"><span class="lab">על מה השיעור, בפשטות</span>
+          הטלוויזיה לקחה את מה שהרדיו עשה לאוזן — ועשתה אותו לעין: <b>תמונה + קול + מיידיות</b>. פתאום מיליונים ברחבי העולם צופים באותו אירוע, באותו רגע. השיעור מראה איך זה הפך את העולם ל"כפר גלובלי" חזותי, שינה את הפוליטיקה (התדמית הפכה חשובה כמו התוכן), ולמה חוקרים מזהירים שהטלוויזיה לא רק <em>מראה</em> מציאות אלא <b>בונה</b> אותה.</div>
+
+        <div class="block"><span class="lab">מה אני חייב לדעת מהשיעור</span>
+          <ul class="plain">
+            <li>המושג המרכזי: <b>הבניית מציאות</b> — הטלוויזיה מעצבת מה חשוב (Agenda Setting), לא רק משקפת.</li>
+            <li>עימות <b>קנדי–ניקסון (1960)</b> — נקודת המפנה של הפוליטיקה החזותית.</li>
+            <li><b>גלובליזציה</b> — הטלוויזיה כמנוע של דחיסת העולם (רוברטסון).</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">מושגים מרכזיים</span>
+          <ul class="terms">
+            <li><b>המדורה השבטית הגלובלית:</b> מיליונים צופים באירוע אחד בו-זמנית — "כולם מתכנסים".</li>
+            <li><b>הבניית מציאות:</b> המדיה לא משקפת מציאות אלא <b>מעצבת</b> אותה; קובעת אילו נושאים חשובים (Agenda Setting).</li>
+            <li><b>גלובליזציה (רוברטסון):</b> תהליך של דחיסת העולם ותודעת תלות-הדדית גוברת; מיוצא בעיקר מהמערב (אמריקניזציה).</li>
+            <li><b>טלוויזיה כשיבוש (Disruptive Media):</b> שידור חי משבש סדרים; יוצר "עומס קוגניטיבי" ותחושת "הווה נצחי".</li>
+            <li><b>פוליטיקה כתדמית:</b> אחרי קנדי-ניקסון — איך אתה <em>נראה</em> חשוב כמו מה שאתה אומר.</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">טיימליין</span>
+          <div class="mini-tl">
+            <div><span class="yr">שנות 50</span><span>הטלוויזיה הופכת לנפוצה בכל בית</span></div>
+            <div><span class="yr">1960</span><span>עימות קנדי–ניקסון — נקודת מפנה פוליטית</span></div>
+            <div><span class="yr">1969</span><span>נחיתה על הירח — שידור גלובלי חי</span></div>
+            <div><span class="yr">1989</span><span>נפילת חומת ברלין בשידור בין-לאומי</span></div>
+          </div>
+        </div>
+
+        <div class="block"><span class="lab">דמויות, חוקרים והמצאות</span>
+          <div class="people">
+            <span class="chip"><b>רולנד רוברטסון</b> — גלובליזציה</span>
+            <span class="chip"><b>קנדי מול ניקסון</b> — עימות 1960</span>
+            <span class="chip"><b>מקלוהן</b> — הכפר הגלובלי</span>
+            <span class="chip"><b>קושינסקי</b> — "להיות שם" (ביקורת)</span>
+          </div>
+        </div>
+
+        <div class="block bigq"><span class="lab">הקשר לשאלה הגדולה</span>
+          הטלוויזיה מחדדת את הצד הביקורתי של הקורס: מדיום ש"מבטיח" לחבר את העולם ולהנגיש מידע — אבל בפועל <b>מרכז כוח</b> בידי מעט ערוצים, מעדיף בידור על עומק, והופך אזרחים לצרכנים פסיביים. הבטחה מול מציאות, שוב.</div>
+
+        <div class="block ex"><span class="lab">דוגמאות למבחן</span>
+          <b>קנדי-ניקסון (1960):</b> צופי הטלוויזיה חשבו שקנדי (רגוע, טוב-מראה) ניצח; מאזיני הרדיו חשבו שניקסון ניצח. מאז — התדמית מכריעה. <b>"להיות שם" (קושינסקי):</b> גנן פשוט שכל דבריו (ציטוטי גינון) מתפרשים כחוכמה, מגיע לצמרת — ביקורת על חברה שמאמינה למסך בלי בדיקה.</div>
+
+        <div class="block q-exam"><span class="lab">איך תיראה שאלה במבחן</span>
+          "עימות קנדי–ניקסון נחשב לנקודת מפנה. מהי 'הבניית מציאות' בטלוויזיה? הסבירו את משמעות הפער בין צופי הטלוויזיה למאזיני הרדיו, ומה זה מלמד על הפוליטיקה בעידן התדמית."</div>
+
+        <div class="block skel"><span class="lab">שלד תשובה לפיתוח</span>
+          <ol>
+            <li>הגדר "הבניית מציאות" + Agenda Setting.</li>
+            <li>תאר את עימות 1960 והפער טלוויזיה/רדיו.</li>
+            <li>ניתוח: התדמית הפכה למרכז הפוליטיקה.</li>
+            <li>ביקורת: פסיביות, העדפת תדמית על תוכן, ריכוז כוח.</li>
+            <li>סיכום: הטלוויזיה מבנה מציאות — לא רק משקפת.</li>
+          </ol>
+        </div>
       </div>
-      <ul class="terms">
-        <li><b>עימות קנדי–ניקסון (1960):</b> נקודת מפנה — קנדי נראה רגוע וטוב מראה, ניקסון נראה עייף ומזיע. צופי הטלוויזיה חשבו שקנדי ניצח; מאזיני הרדיו חשבו אחרת. מאז — <b>התדמית</b> חשובה כמו התוכן.</li>
-        <li><b>גלובליזציה (רוברטסון):</b> תהליך של דחיסת העולם ותודעה הולכת וגוברת של תלות הדדית; מיוצא בעיקר מהמערב (מודרניזציה/אמריקניזציה).</li>
-        <li><b>טלוויזיה כשיבוש (Disruptive Media):</b> שידור חי משבש סדרים; יוצר "עומס קוגניטיבי" ותחושת נוכחות מרחוק ("ההווה הנצחי").</li>
-        <li><b>ביקורת:</b> ריכוז כוח בידי מעט ערוצים; העדפת בידור על עומק; הפיכת הצופים לצרכני מידע פסיביים.</li>
-      </ul>
-      <div class="kv plum"><span class="label">דוגמה תרבותית — "להיות שם" (קושינסקי)</span>
-        גנן פשוט שכל חייו מול הטלוויזיה, וכל דבריו (ציטוטי גינון) מתפרשים כחוכמה עמוקה, מגיע לצמרת הפוליטית. ביקורת חדה על חברה שמאמינה למסך בלי בדיקה מעמיקה.</div>
-      <div class="exam-tip"><span class="label">איך להפוך את זה לתשובה</span>
-        הליבה: "הבניית מציאות" + מיידיות גלובלית. קנדי–ניקסון היא הדוגמה הפוליטית המושלמת (התדמית מנצחת), "להיות שם"/"טרומן" הן הדוגמאות התרבותיות-ביקורתיות. תמיד סיים בצד הביקורתי — פסיביות והעדפת תדמית על תוכן.</div>
     </div>
   </section>
 
-  <!-- TOPIC 7 -->
-  <section id="t7">
-    <div class="sec-head"><div class="badge">7</div><div><h2>המהפכה הדיגיטלית</h2><span class="sub">שאלת הדוגמה הרשמית #2 יושבת כאן</span></div></div>
-    <div class="card">
-      <div class="concept-grid">
-        <div class="kv"><span class="label">הרעיון המרכזי</span>
-          המעבר מאנלוגי לדיגיטלי (ביטים) איפשר לכל סוגי המדיה "לדבר באותה שפה", ולמשתמש להפוך מ<b>צרכן פסיבי ליצרן-צרכן</b> (prosumer). אבל ההבטחה של "דמוקרטיזציה ושוויון לכולם" מתנגשת עם אי-שוויון חדש — <b>הפער הדיגיטלי וההון הדיגיטלי</b>.</div>
+  <!-- ============ LESSON 10 ============ -->
+  <section id="l7">
+    <div class="lesson">
+      <div class="head"><div class="kicker">שיעור 10</div><h3>המהפכה הדיגיטלית והרשתות החברתיות</h3></div>
+      <div class="body">
+        <div class="block intro"><span class="lab">על מה השיעור, בפשטות</span>
+          כל המדיה הקודמת הייתה <b>אנלוגית</b> ונפרדת (רדיו לחוד, עיתון לחוד). המהפכה הדיגיטלית הפכה הכול ל<b>ביטים</b> — אותה "שפה" לכל סוגי התוכן. פתאום כל אחד יכול לא רק <em>לצרוך</em> מדיה אלא גם <b>לייצר</b> אותה (prosumer). ההבטחה הייתה: שוויון מלא, "דמוקרטיזציה לכולם". השיעור בוחן — ביקורתית — האם ההבטחה התקיימה, דרך המושג <b>הון דיגיטלי</b> של בורדייה.</div>
+
+        <div class="block"><span class="lab">מה אני חייב לדעת מהשיעור</span>
+          <ul class="plain">
+            <li>המעבר מ<b>צרכן פסיבי</b> ל<b>יצרן-צרכן (prosumer)</b>, ו<b>התכנסות מדיה</b> (הכול במכשיר אחד).</li>
+            <li>התיאוריה המרכזית: <b>בורדייה</b> — סוגי ההון → <b>הון דיגיטלי</b>.</li>
+            <li>הביקורת: הרשת <b>לא</b> מבטלת אי-שוויון — היא משכפלת ומעצימה אותו (הפער הדיגיטלי).</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">מושגים מרכזיים</span>
+          <ul class="terms">
+            <li><b>ארבעת סוגי ההון (בורדייה):</b> <b>כלכלי</b> (כסף/נכסים) · <b>תרבותי</b> (ידע, השכלה, "טעם") · <b>חברתי</b> (רשת קשרים שאפשר לתרגם ליתרון) · <b>סימבולי</b> (יוקרה, הכרה).</li>
+            <li><b>הון דיגיטלי:</b> תרגום ההון לרשת — נגישות וכלים (אובייקטיבי) + מיומנות ואוריינות דיגיטלית (סובייקטיבי). קובע סיכויי הצלחה בשוק העבודה ובמרחב הציבורי.</li>
+            <li><b>הביטוס דיגיטלי:</b> הרגלים ותפיסות עולם דיגיטליים שנרכשים מגיל צעיר — מי שגדל עם הרשת תופס אותה כטבעית.</li>
+            <li><b>המרת הון בשדה (field):</b> המרחב הדיגיטלי כזירת מאבק — ממירים קשרים (לינקדאין) להזדמנויות עבודה.</li>
+            <li><b>הפער הדיגיטלי + כלכלת הקשב:</b> פער בין מי שיש לו גישה/מיומנות למי שאין; המאבק של האלגוריתמים על הקשב שלנו.</li>
+          </ul>
+        </div>
+
+        <div class="block"><span class="lab">טיימליין</span>
+          <div class="mini-tl">
+            <div><span class="yr">1989</span><span>טים ברנרס-לי — ה-WWW (Web 1.0, "קריאה בלבד")</span></div>
+            <div><span class="yr">שנות 2000</span><span>Web 2.0 — תוכן גולשים (UGC), רשתות חברתיות</span></div>
+            <div><span class="yr">2007</span><span>ה-iPhone — האינטרנט צמוד לגוף, בזמן אמת</span></div>
+            <div><span class="yr">2026</span><span>~5.66 מיליארד משתמשי מדיה חברתית; דור ה-Z</span></div>
+          </div>
+        </div>
+
+        <div class="block"><span class="lab">דמויות, חוקרים והמצאות</span>
+          <div class="people">
+            <span class="chip"><b>פייר בורדייה</b> — הון (כלכלי/תרבותי/חברתי/סימבולי)</span>
+            <span class="chip"><b>טים ברנרס-לי</b> — ה-WWW</span>
+            <span class="chip"><b>iPhone (2007)</b> — נקודת מפנה</span>
+            <span class="chip"><b>prosumer</b> — יצרן-צרכן</span>
+          </div>
+        </div>
+
+        <div class="block bigq"><span class="lab">הקשר לשאלה הגדולה</span>
+          זהו השיא הביקורתי של הקורס, וסוגר מעגל עם הדפוס: <b>כל מדיום חדש מבטיח דמוקרטיזציה — ולרוב משכפל את יחסי הכוח הקיימים.</b> מי שכבר מחזיק בהון (כלכלי, תרבותי, חברתי) מתרגם אותו בקלות גם להון דיגיטלי, בעוד החלשים נשארים מאחור. הרשת אינה מגרש שוויוני.</div>
+
+        <div class="block ex"><span class="lab">דוגמאות למבחן</span>
+          <b>לינקדאין:</b> הון חברתי (קשרים) → הזדמנויות עבודה. <b>טיקטוק/אינסטגרם:</b> הון תרבותי (מיומנות, "טעם") → נוכחות ומעמד. <b>הפער הדיגיטלי:</b> לא רק מי שיש לו מכשיר — אלא מי שיש לו <em>מיומנות</em> לנצל אותו.</div>
+
+        <div class="block q-exam"><span class="lab">איך תיראה שאלה במבחן</span>
+          "הגדירו הון חברתי ותרבותי לפי בורדייה, הסבירו כיצד הם מתורגמים ל'הון דיגיטלי' (לינקדאין/טיקטוק), וכיצד זה מאתגר את הבטחת ה'דמוקרטיזציה' של האינטרנט." (שאלת הדוגמה הרשמית #2.)</div>
+
+        <div class="block skel"><span class="lab">שלד תשובה לפיתוח</span>
+          <ol>
+            <li>הגדר הון חברתי + תרבותי (בורדייה).</li>
+            <li>תרגם ל"הון דיגיטלי" עם דוגמה (לינקדאין/טיקטוק).</li>
+            <li>הראה איך החזקה בו קובעת הצלחה, והיעדרו = פיגור.</li>
+            <li>הפרכת הדמוקרטיזציה: ההון הקיים משוכפל ומועצם ברשת.</li>
+            <li>סיכום: תחת מסווה של שוויון — אי-שוויון חדש.</li>
+          </ol>
+        </div>
       </div>
-      <ul class="terms">
-        <li><b>בורדייה — סוגי הון:</b> <b>כלכלי</b> (כסף/נכסים), <b>תרבותי</b> (ידע, השכלה, כישורים, "טעם"), <b>חברתי</b> (רשת קשרים והיכרויות שאפשר לתרגם ליתרון), <b>סימבולי</b> (יוקרה, הכרה).</li>
-        <li><b>הון דיגיטלי:</b> תרגום ההון לרשת — נגישות וכלים (אובייקטיבי) + מיומנות, ידע ואוריינות דיגיטלית (סובייקטיבי). החזקה בו (או היעדרו) קובעת סיכויי הצלחה בשוק העבודה ובמרחב הציבורי.</li>
-        <li><b>הביטוס דיגיטלי:</b> הרגלים ותפיסות עולם דיגיטליים שנרכשים מגיל צעיר; מי שגדל עם הרשת תופס אותה כטבעית ומפתח בה ערך.</li>
-        <li><b>המרת הון בשדה (field):</b> המרחב הדיגיטלי הוא זירת מאבק; אפשר להמיר קשרים (לינקדאין) להזדמנויות עבודה, או מיומנות דיגיטלית לשכר גבוה.</li>
-        <li><b>כלכלת הקשב (Attention Economy):</b> המאבק על הקשב שמעצב את ההתנהגות באלגוריתמים.</li>
-      </ul>
-      <div class="kv plum"><span class="label">הניתוח הביקורתי — הפרכת "הדמוקרטיזציה"</span>
-        ההבטחה הייתה שוויון הזדמנויות מלא לכולם. אבל מי שכבר מחזיק בהון (כלכלי, תרבותי, חברתי) מתרגם אותו גם להון דיגיטלי — ולכן הרשת <b>משכפלת ואף מעצימה</b> אי-שוויון קיים במקום לבטלו. הפער הדיגיטלי אינו רק נגישות למכשיר, אלא פער במיומנות ובניצול.</div>
-      <div class="exam-tip"><span class="label">איך להפוך את זה לתשובה</span>
-        זו שאלת הדוגמה #2 — תשובה מלאה בפרק התשובות. מבנה: הגדר הון חברתי + תרבותי → תרגם ל"הון דיגיטלי" עם דוגמה (לינקדאין/טיקטוק) → הראה איך זה מפריך את הבטחת הדמוקרטיזציה. השתמש בבורדייה כמסגרת לכל התשובה.</div>
     </div>
-    <p style="text-align:start"><a class="up" href="#master">↑ חזרה לטבלה</a></p>
   </section>
 
   <hr class="div">
 
-  <!-- QUESTION BANK -->
+  <!-- ============ TIMELINE ============ -->
+  <section id="timeline">
+    <div class="sec-head"><div class="badge">⏱</div><div><h2>טיימליין כללי של הקורס</h2><span class="sub">הסיפור השלם — מהתרבות שבעל-פה ועד הרשתות</span></div></div>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-row"><div class="tl-era">עד 1439</div><div class="tl-body"><b>תרבות אוראלית + כתב-יד.</b> <span class="m">ידע עובר בעל-פה או בכתב-יד יקר; נחלת מעטים. זיכרון והקשבה קבוצתית.</span></div></div>
+        <div class="tl-row"><div class="tl-era">1439</div><div class="tl-body"><b>מכבש הדפוס (גוטנברג).</b> <span class="m">הפצה המונית של טקסט זהה → רפורמציה, לאומיות, אינדיבידואליזם, מרחב ציבורי.</span></div></div>
+        <div class="tl-row"><div class="tl-era">מאות 17–19</div><div class="tl-body"><b>עליית העיתונות.</b> <span class="m">מגיליונות יקרים לתקשורת המונים זולה; קריאה יומיומית; דעת קהל.</span></div></div>
+        <div class="tl-row"><div class="tl-era">מאה 19</div><div class="tl-body"><b>הטלגרף והרכבת.</b> <span class="m">הפרדת מידע מתנועה פיזית → "ביטול המרחב והזמן", זמן סטנדרטי, שוק גלובלי, סוכנויות ידיעות.</span></div></div>
+        <div class="tl-row"><div class="tl-era">1839 / 1895</div><div class="tl-body"><b>הצילום ואז הקולנוע.</b> <span class="m">ייצוג "אובייקטיבי" של מציאות; בנימין — אאורה ושעתוק טכני; הבניית מציאות.</span></div></div>
+        <div class="tl-row"><div class="tl-era">שנות 20–40</div><div class="tl-body"><b>תור הזהב של הרדיו.</b> <span class="m">קול חי לתוך הסלון; רוזוולט מול גבלס; מדורה שבטית; תעמולה ולוחמה.</span></div></div>
+        <div class="tl-row"><div class="tl-era">שנות 50–60</div><div class="tl-body"><b>עידן הטלוויזיה.</b> <span class="m">מדורה שבטית גלובלית; קנדי-ניקסון; הבניית מציאות; פוליטיקה כתדמית; גלובליזציה.</span></div></div>
+        <div class="tl-row"><div class="tl-era">1989</div><div class="tl-body"><b>האינטרנט וה-WWW.</b> <span class="m">ברנרס-לי; מעבר מאנלוגי לדיגיטלי; Web 1.0 → 2.0 (תוכן גולשים).</span></div></div>
+        <div class="tl-row"><div class="tl-era">2007 →</div><div class="tl-body"><b>סמארטפון ורשתות חברתיות.</b> <span class="m">iPhone; prosumer; התכנסות מדיה; הון דיגיטלי; כלכלת הקשב; הפער הדיגיטלי.</span></div></div>
+      </div>
+      <div class="exam-tip"><span class="label">התבנית שחוזרת</span>כל שורה בטיימליין = מדיום שביטל מגבלה ישנה, שינה תודעה, ועיצב כוח פוליטי — ותמיד הבטיח "דמוקרטיזציה". זה הסיפור הגדול בשורה אחת.</div>
+    </div>
+  </section>
+
+  <!-- ============ CONCEPT MAP ============ -->
+  <section id="cmap">
+    <div class="sec-head"><div class="badge">🕸</div><div><h2>מפת מושגים — מי קשור למה</h2><span class="sub">כל חוקר, המושגים שלו, ואיך הכול מתחבר</span></div></div>
+    <div class="cmap">
+      <div class="hub">
+        <h4>מרשל מקלוהן</h4><div class="role">הוגה מרכזי · חוזר בכל הקורס</div>
+        <ul>
+          <li>"המדיום הוא המסר"</li>
+          <li>מדיה חמה מול קרה</li>
+          <li>הכפר הגלובלי · המדורה השבטית</li>
+          <li>גלקסיית גוטנברג (דפוס)</li>
+          <li>← הבסיס לדטרמיניזם הטכנולוגי</li>
+        </ul>
+      </div>
+      <div class="hub">
+        <h4>פייר בורדייה</h4><div class="role">שיעור הדיגיטל · יחסי כוח</div>
+        <ul>
+          <li>4 סוגי הון: כלכלי, תרבותי, חברתי, סימבולי</li>
+          <li>← הון דיגיטלי</li>
+          <li>הביטוס (דיגיטלי)</li>
+          <li>שדה (field) כזירת מאבק</li>
+          <li>← מפריך את הבטחת הדמוקרטיזציה</li>
+        </ul>
+      </div>
+      <div class="hub">
+        <h4>ולטר בנימין</h4><div class="role">צילום וקולנוע</div>
+        <ul>
+          <li>אאורה (ההילה הייחודית)</li>
+          <li>שעתוק טכני</li>
+          <li>דמוקרטיזציה של האמנות</li>
+          <li>← מחיר: אובדן אותנטיות</li>
+        </ul>
+      </div>
+      <div class="hub">
+        <h4>הברמס + אנדרסון</h4><div class="role">שיעור הדפוס</div>
+        <ul>
+          <li><b>הברמס:</b> המרחב הציבורי</li>
+          <li>נתינים → אזרחים</li>
+          <li><b>אנדרסון:</b> קהילות מדומיינות</li>
+          <li>← לאומיות ומדינות הלאום</li>
+        </ul>
+      </div>
+      <div class="hub">
+        <h4>דן כספי</h4><div class="role">מודל אנליטי · שימושי לכל מדיום</div>
+        <ul>
+          <li>פריצה → התמסדות</li>
+          <li>→ התנגנות (מוסדות ותיקים נלחמים)</li>
+          <li>→ הסתגלות → התלכדות</li>
+        </ul>
+      </div>
+      <div class="axis">
+        <h4>שני הצירים שמחברים הכול</h4>
+        <ul class="terms">
+          <li><b>דטרמיניזם טכנולוגי ↔ הבניה חברתית:</b> הטכנולוגיה מעצבת חברה — או החברה מעצבת שימוש? (השתמש בזה בכל שאלת ניתוח.)</li>
+          <li><b>דמוקרטיזציה (הבטחה) ↔ שכפול יחסי כוח (מציאות):</b> כל מדיום מבטיח שוויון; לרוב מעצים פערים קיימים. (הזווית הביקורתית של הקורס.)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CORE ============ -->
+  <section id="core">
+    <div class="sec-head"><div class="badge">🎯</div><div><h2>מה הכי חשוב לזכור למבחן</h2><span class="sub">אם תזכור רק את זה — יש לך בסיס לכל שאלה</span></div></div>
+
+    <div class="callout">
+      <h3>חמשת העקרונות הגדולים</h3>
+      <ul class="terms">
+        <li><b>"המדיום הוא המסר":</b> הטכנולוגיה עצמה מעצבת חברה, לא רק תוכנה. (מקלוהן — הלב של הקורס.)</li>
+        <li><b>כל מדיום מבטל מגבלה:</b> דפוס=גישה לידע · טלגרף=מרחב וזמן · רדיו/טלוויזיה=מרחק ומיידיות · דיגיטל=הפרדה בין יצרן לצרכן.</li>
+        <li><b>שני שימושים לכל כלי:</b> דמוקרטי מול טוטליטרי (רוזוולט מול גבלס) — כאן נכנסת ההבניה החברתית.</li>
+        <li><b>המדיה מבנה מציאות:</b> לא משקפת אלא מעצבת (צילום, טלוויזיה, מדיאטיזציה).</li>
+        <li><b>הבטחת הדמוקרטיזציה מתעתעת:</b> מדפוס ועד הון דיגיטלי — הרשת משכפלת אי-שוויון.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:.2rem">הדוגמאות החזקות — אחת לכל מדיום (שנן אותן)</h3>
+      <div class="table-scroll">
+      <table>
+        <thead><tr><th>מדיום</th><th>מה שינה</th><th>צבא</th><th>מנהיגים / חברה</th></tr></thead>
+        <tbody>
+          <tr><th>דפוס</th><td>אוראלי→דפוס; חשיבה ליניארית</td><td>סטנדרטיזציה של ידע</td><td>רפורמציה (לותר); מדינות לאום; הברמס</td></tr>
+          <tr><th>טלגרף</th><td>הפרדת מידע מתנועה; מהירות האור</td><td>פיקוד בזמן אמת; מברק אמס</td><td>שוק גלובלי; זמן סטנדרטי; סוכנויות</td></tr>
+          <tr><th>רדיו</th><td>קול חי לתוך הסלון</td><td>קשר אלחוטי (בליצקריג)</td><td>רוזוולט מול גבלס; מלחמת העולמות</td></tr>
+          <tr><th>טלוויזיה</th><td>תמונה+קול+מיידיות; הבניית מציאות</td><td>לוחמה פסיכולוגית/תדמיתית</td><td>קנדי-ניקסון; גלובליזציה; "להיות שם"</td></tr>
+          <tr><th>דיגיטל</th><td>אנלוגי→ביטים; prosumer</td><td>ARPANET; GPS; סייבר</td><td>הון דיגיטלי (בורדייה); הפער הדיגיטלי</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUESTION BANK ============ -->
   <section id="bank">
-    <div class="sec-head"><div class="badge">?</div><div><h2>בנק שאלות בסגנון המרצה</h2><span class="sub">תרגל ניסוח תשובה על כל אחת — לפחות ראשי פרקים</span></div></div>
+    <div class="sec-head"><div class="badge">?</div><div><h2>בנק שאלות + תשובות לדוגמה</h2><span class="sub">בסגנון המרצה · תרגל לכתוב, אז השווה</span></div></div>
 
-    <div class="q"><span class="qnum">שאלה 1</span>
-      <p><b>א.</b> הסבירו את טענת מקלוהן "המדיום הוא המסר". <b>ב.</b> הדגימו אותה דרך המעבר מהטלגרף שינה את תפיסת המרחב והזמן, והתייחסו לשינוי הצבאי והכלכלי שנלווה אליו.</p>
-      <span class="qtag">מקלוהן · טלגרף</span>
-    </div>
-    <div class="q"><span class="qnum">שאלה 2</span>
-      <p>הרדיו היה כלי מרכזי הן בידי מנהיג דמוקרטי והן בידי משטר טוטליטרי. <b>א.</b> הסבירו כיצד הרדיו שינה את מהות המנהיגות הפוליטית. <b>ב.</b> השוו בין השימוש של רוזוולט לשימוש של גבלס. <b>ג.</b> מה זה מלמד על היחס בין טכנולוגיה לחברה (דטרמיניזם מול הבניה חברתית)?</p>
-      <span class="qtag">רדיו · מנהיגים · תעמולה</span>
-    </div>
-    <div class="q"><span class="qnum">שאלה 3</span>
-      <p>ולטר בנימין טען שהשעתוק הטכני גורם ליצירת האמנות לאבד את ה"אאורה" שלה. <b>א.</b> הגדירו "אאורה" ו"שעתוק טכני". <b>ב.</b> הדגימו דרך הצילום והקולנוע. <b>ג.</b> מדוע בנימין ראה בכך גם <em>דמוקרטיזציה</em> של האמנות, ומהו המחיר?</p>
-      <span class="qtag">בנימין · צילום · קולנוע</span>
-    </div>
-    <div class="q"><span class="qnum">שאלה 4</span>
-      <p>"הדפוס לא רק הפיץ ידע — הוא שינה את דרך החשיבה ואת מבנה החברה." <b>א.</b> הסבירו את המעבר מתרבות אוראלית לתרבות דפוס. <b>ב.</b> הדגימו שלושה שינויים (קוגניטיבי, דתי/פוליטי, לאומי). <b>ג.</b> קשרו למושג "המרחב הציבורי" של הברמס.</p>
-      <span class="qtag">דפוס · גוטנברג · הברמס</span>
-    </div>
-    <div class="q"><span class="qnum">שאלה 5</span>
-      <p>עם עליית הרשתות החברתיות, חוקרים מדברים על "הון דיגיטלי". <b>א.</b> הגדירו הון חברתי ותרבותי לפי בורדייה. <b>ב.</b> הסבירו כיצד הם מתורגמים להון דיגיטלי (לינקדאין/טיקטוק). <b>ג.</b> כיצד זה מאתגר את הבטחת ה"דמוקרטיזציה" של האינטרנט?</p>
-      <span class="qtag">בורדייה · דיגיטלי</span>
-    </div>
-    <div class="q"><span class="qnum">שאלה 6</span>
-      <p>עימות קנדי–ניקסון (1960) נחשב לנקודת מפנה. <b>א.</b> מהי "הבניית מציאות" בטלוויזיה? <b>ב.</b> הסבירו את משמעות העימות והפער בין צופי הטלוויזיה למאזיני הרדיו. <b>ג.</b> מה זה מלמד על הפוליטיקה בעידן התדמית?</p>
-      <span class="qtag">טלוויזיה · קנדי-ניקסון</span>
-    </div>
-    <div class="q"><span class="qnum">שאלה 7</span>
-      <p>הטלגרף והרכבת "ביטלו את המרחב והזמן". <b>א.</b> הסבירו מדוע הפרדת המידע מהתנועה הפיזית הייתה מהפכנית. <b>ב.</b> הדגימו את ההשפעה על הצבא ועל הכלכלה הגלובלית. <b>ג.</b> קשרו למושג הזמן הסטנדרטי.</p>
-      <span class="qtag">טלגרף · רכבת</span>
-    </div>
-    <div class="q"><span class="qnum">שאלה 8</span>
-      <p>בחרו מדיום אחד (דפוס / רדיו / טלוויזיה / דיגיטלי) ונתחו אותו לפי המודל של כספי (1993): פריצה, התמסדות, התנגנות, הסתגלות, התלכדות.</p>
-      <span class="qtag">כספי · מודל היסטורי-טכנולוגי</span>
-    </div>
-    <div class="q"><span class="qnum">שאלה 9</span>
-      <p>שלושת הסרטים "המופע של טרומן", "להיות שם" ו"סימונה" עוסקים ביחס בין מציאות למדיה. בחרו שניים והסבירו כיצד הם ממחישים את מושג "הבניית המציאות" / המדיאטיזציה.</p>
-      <span class="qtag">קולנוע · מציאות מובנית</span>
-    </div>
-    <div class="q"><span class="qnum">שאלה 10</span>
-      <p>"כל מדיום חדש מבטיח דמוקרטיזציה — ולרוב משכפל את יחסי הכוח הקיימים." דונו בטענה זו תוך שימוש בשתי דוגמאות משני עידנים שונים (למשל: דפוס והדיגיטלי).</p>
-      <span class="qtag">שאלת סינתזה · על-נושאית</span>
-    </div>
-  </section>
-
-  <hr class="div">
-
-  <!-- SAMPLE ANSWERS -->
-  <section id="answers">
-    <div class="sec-head"><div class="badge">✓</div><div><h2>תשובות לדוגמה ברמה גבוהה</h2><span class="sub">המבנה: פתיחה → הסבר מושגי → דוגמה → ניתוח → סיכום</span></div></div>
-
-    <div class="answer">
-      <p class="qref">תשובה לשאלת הדוגמה #1 — מקלוהן "המדיום הוא המסר" + המעבר לדפוס</p>
-      <div class="move"><span class="tag">פתיחה</span>
-        <p>חוקר התקשורת מרשל מקלוהן טען כי בבואנו לבחון את השפעתו של אמצעי תקשורת, עלינו להביט לא רק בתוכן שהוא מעביר, אלא באמצעי עצמו — "המדיום הוא המסר".</p></div>
-      <div class="move"><span class="tag">הסבר מושגי</span>
-        <p>הכוונה היא שעצם הטכנולוגיה — אופן העברת המידע — מעצבת את החברה, את דרכי החשיבה ואת יחסי הכוח, יותר מהתוכן הספציפי שעובר בה. זוהי הגישה ה<b>דטרמיניסטית-טכנולוגית</b>: הטכנולוגיה אינה כלי ניטרלי, אלא כוח שמחולל שינוי חברתי בעצם קיומו. לא משנה מה מודפס — עצם המעבר לדפוס הוא ה"מסר" ההיסטורי.</p></div>
-      <div class="move"><span class="tag">דוגמה היסטורית</span>
-        <p>המעבר מתרבות אוראלית (שבה ידע עבר בעל-פה, מבוסס זיכרון וקהילתי) לדפוס של גוטנברג במאה ה-15 ממחיש זאת. הטקסט המודפס לא רק הפיץ מידע — הוא שינה את דרך החשיבה: הקריאה השקטה והבודדת יצרה חשיבה <b>ליניארית, רציונלית ואינדיבידואלית</b> (מה שמקלוהן כינה "גלקסיית גוטנברג").</p></div>
-      <div class="move"><span class="tag">ניתוח — השינויים</span>
-        <p>מכאן נבעו שלושה שינויים עמוקים: <b>(1) פוליטי-דתי</b> — הרפורמציה של לותר (1517) התפשטה במהירות הודות לדפוס והחלישה את כוח הכנסייה הקתולית; <b>(2) לאומי</b> — הדפסה בשפות מקומיות (ולא בלטינית) יצרה אחידות לשונית ואפשרה את עליית מדינות הלאום ("קהילות מדומיינות" של אנדרסון); <b>(3) קוגניטיבי-חברתי</b> — האינדיבידואל התנתק מהקבוצה, ונולד מרחב ציבורי של דיון רציונלי (הברמס). כל אלה לא נבעו מתוכן ספציפי אלא מעצם הטכנולוגיה — בדיוק כטענת מקלוהן.</p></div>
-      <div class="move"><span class="tag">סיכום</span>
-        <p>מקרה הדפוס מוכיח את מקלוהן: אמצעי תקשורת חדש אינו רק "צינור" לתוכן, אלא כוח שמעצב מחדש את מבנה החברה, החשיבה והכוח. המדיום — ולא המסר שבתוכו — היה כאן ההיסטוריה.</p></div>
+    <div class="qa">
+      <span class="qnum">שאלה 1 · דפוס + מקלוהן</span>
+      <p class="qtext">מקלוהן טבע "המדיום הוא המסר". א. הסבירו את הטענה. ב. הדגימו דרך המעבר מתרבות אוראלית לדפוס של גוטנברג, כולל השינוי החברתי/הקוגניטיבי/הפוליטי.</p>
+      <div class="ans"><span class="lab">שלד תשובה מלא</span>
+        פתיחה: מקלוהן טוען שאופי האמצעי חשוב מתוכנו. הסבר: הגישה הדטרמיניסטית — עצם הטכנולוגיה מעצבת חברה. הדגמה: הדפוס (1439) הפך חשיבה שמיעתית-קבוצתית לקריאה שקטה, ליניארית, אינדיבידואלית ("גלקסיית גוטנברג"). שלושה שינויים: רפורמציה (לותר 1517) · לאומיות (שפות מקומיות → קהילות מדומיינות) · מרחב ציבורי (הברמס). סיכום: לא התוכן — עצם הדפוס היה ה"מסר" ההיסטורי.</div>
     </div>
 
-    <div class="answer">
-      <p class="qref">תשובה לשאלת הדוגמה #2 — בורדייה, הון דיגיטלי ואתגר הדמוקרטיזציה</p>
-      <div class="move"><span class="tag">פתיחה + הסבר מושגי (סעיף א')</span>
-        <p>הסוציולוג פייר בורדייה טבע את מושג "ההון" כדי להסביר כיצד נשמרים אי-שוויון ויחסי כוח. <b>הון חברתי</b> הוא סך הקשרים, ההיכרויות והרשתות החברתיות שברשות הפרט, שאותם ניתן לתרגם ליתרון. <b>הון תרבותי</b> הוא הידע, ההשכלה, הכישורים ו"הטעם" שנרכשים לרוב במשפחה ובחינוך, ומאותתים על מעמד.</p></div>
-      <div class="move"><span class="tag">הדגמה — הון דיגיטלי (סעיף ב')</span>
-        <p>בעידן הרשתות החברתיות ההון מתורגם ל<b>הון דיגיטלי</b>: הון חברתי הופך לרשת קשרים בלינקדאין שפותחת דלתות תעסוקתיות; הון תרבותי הופך למיומנות דיגיטלית, אוריינות ויכולת לייצר נוכחות מרשימה (טיקטוק/אינסטגרם). מי שמחזיק בהון דיגיטלי גבוה ממנף אותו להצלחה בשוק העבודה ובמרחב הציבורי — ומי שחסר אותו (נגישות, מיומנות, "הביטוס דיגיטלי") נשאר מאחור.</p></div>
-      <div class="move"><span class="tag">ניתוח ביקורתי (סעיף ג')</span>
-        <p>ההבטחה המוקדמת של האינטרנט הייתה "דמוקרטיזציה" — שוויון הזדמנויות לכולם. מושג ההון הדיגיטלי מפריך זאת: מי שכבר מחזיק בהון כלכלי, תרבותי וחברתי מתרגם אותו בקלות גם להון דיגיטלי, בעוד החלשים נותרים מאחור. הרשת אינה מבטלת את יחסי הכוח — היא <b>משכפלת ואף מעצימה</b> אותם. ה"פער הדיגיטלי" אינו רק פער בגישה למכשיר, אלא פער עמוק במיומנות ובניצול.</p></div>
-      <div class="move"><span class="tag">סיכום</span>
-        <p>ההון הדיגיטלי חושף שהטכנולוגיה החדשה, כמו קודמותיה, אינה מגרש שוויוני. תחת המסווה של "שוויון לכולם" היא מייצרת אי-שוויון חדש שמבוסס על הון קיים — בדיוק כפי שבורדייה היה צופה.</p></div>
+    <div class="qa">
+      <span class="qnum">שאלה 2 · בורדייה + דיגיטל</span>
+      <p class="qtext">א. הגדירו הון חברתי ותרבותי לפי בורדייה. ב. כיצד הם מתורגמים ל"הון דיגיטלי"? ג. כיצד מושג זה מאתגר את הבטחת ה"דמוקרטיזציה" של האינטרנט?</p>
+      <div class="ans"><span class="lab">שלד תשובה מלא</span>
+        הון חברתי = רשת קשרים שאפשר לתרגם ליתרון; הון תרבותי = ידע, השכלה ו"טעם". תרגום דיגיטלי: קשרים בלינקדאין → עבודה; מיומנות ואוריינות → נוכחות בטיקטוק/אינסטגרם. ניתוח ביקורתי: ההבטחה הייתה שוויון, אך מי שמחזיק בהון קיים מתרגם אותו גם להון דיגיטלי → הרשת משכפלת ומעצימה אי-שוויון. הפער הדיגיטלי = פער במיומנות, לא רק בגישה. סיכום: תחת מסווה של שוויון — אי-שוויון חדש.</div>
     </div>
 
-    <div class="answer">
-      <p class="qref">תשובה לדוגמה #3 — הרדיו והמנהיגות: רוזוולט מול גבלס</p>
-      <div class="move"><span class="tag">פתיחה + הסבר מושגי</span>
-        <p>הרדיו חולל מהפכה במנהיגות הפוליטית: לראשונה יכול מנהיג לדבר ב<b>קול חי, ישירות לתוך הסלון</b> של מיליוני אזרחים בו-זמנית, בלי תיווך. המדיום החם (במונחי מקלוהן) יצר אינטימיות המונית ותחושת קשר אישי — אך אותו כלי בדיוק שירת שתי מטרות פוליטיות הפוכות.</p></div>
-      <div class="move"><span class="tag">דוגמה — שני מודלים</span>
-        <p><b>המודל הדמוקרטי (רוזוולט):</b> "שיחות ליד האח" בטון אישי ומרגיע, שבנו אמון והפכו נתינים לאזרחים משתתפים. <b>המודל הטוטליטרי (גבלס):</b> "מקלט העם" (Volksempfänger) — מכשיר זול ומוגבל בתדרים, שהפיץ תעמולה נאצית לכל בית ומנע האזנה לתחנות זרות. כאן הרדיו שימש כ"מזרק" (מודל היפודרמי) של מסרים לקהל פסיבי.</p></div>
-      <div class="move"><span class="tag">ניתוח</span>
-        <p>המקרה מדגים את המתח בין הגישות: מבחינה <b>דטרמיניסטית</b>, עצם הרדיו יצר את אפשרות הקשר הישיר מנהיג-אזרח. אך מבחינת <b>ההבניה החברתית</b>, החברה והמשטר הם שקבעו את השימוש — אותה טכנולוגיה שימשה לביסוס דמוקרטיה בארה"ב ולביסוס דיקטטורה בגרמניה. "מלחמת העולמות" (וולס, 1938) הוכיחה כמה עוצמתי הכלי — ומדוע חיונית אוריינות תקשורתית.</p></div>
-      <div class="move"><span class="tag">סיכום</span>
-        <p>הרדיו לימד שטכנולוגיית תקשורת היא כוח פוליטי אדיר — אך כיוונו (שחרור או שליטה) נקבע בידי מי שאוחז בו. זהו השיעור המרכזי על הקשר בין מדיה, כוח וחברה.</p></div>
+    <div class="qa">
+      <span class="qnum">שאלה 3 · רדיו ומנהיגים</span>
+      <p class="qtext">הרדיו שירת מנהיג דמוקרטי ומשטר טוטליטרי. א. כיצד שינה את מהות המנהיגות? ב. השוו רוזוולט לגבלס. ג. מה זה מלמד על היחס טכנולוגיה↔חברה?</p>
+      <div class="ans"><span class="lab">שלד תשובה מלא</span>
+        הרדיו = קול חי ישירות לסלון, בו-זמנית, בלי תיווך (מדיה חם, אינטימיות המונית). רוזוולט: "שיחות ליד האח", אמון, אזרחים משתתפים. גבלס: "מקלט העם" (Volksempfänger), תעמולה כמזרק לקהל פסיבי. ניתוח: דטרמיניזם (הכלי אפשר קשר ישיר) מול הבניה חברתית (אותו כלי — דמוקרטיה בארה"ב, דיקטטורה בגרמניה). סיכום: הכיוון נקבע בידי מי שאוחז בכלי.</div>
+    </div>
+
+    <div class="qa">
+      <span class="qnum">שאלה 4 · טלגרף</span>
+      <p class="qtext">הטלגרף "ביטל את המרחב והזמן". א. מדוע הפרדת המידע מהתנועה הפיזית מהפכנית? ב. הדגימו השפעה על הצבא והכלכלה. ג. קשרו לזמן הסטנדרטי.</p>
+      <div class="ans"><span class="lab">שלד תשובה מלא</span>
+        לפני הטלגרף מהירות מידע = מהירות תחבורה. המהפכה: מידע נע לבד, במהירות האור. צבא: פיקוד ושליטה בזמן אמת (מברק אמס → מלחמת פרוסיה-צרפת). כלכלה: מחיר בבורסה מרכזית בזמן אמת → שוק גלובלי (קו 1900). זמן סטנדרטי: הרכבת חייבה זמן אחיד במקום "זמן מקומי" לפי השמש. סיכום: המהירות היא ה"מסר".</div>
+    </div>
+
+    <div class="qa">
+      <span class="qnum">שאלה 5 · טלוויזיה</span>
+      <p class="qtext">עימות קנדי-ניקסון כנקודת מפנה. א. מהי "הבניית מציאות"? ב. הסבירו את הפער צופי-טלוויזיה מול מאזיני-רדיו. ג. מה זה מלמד על פוליטיקה בעידן התדמית?</p>
+      <div class="ans"><span class="lab">שלד תשובה מלא</span>
+        הבניית מציאות = המדיה מעצבת מה חשוב (Agenda Setting), לא רק משקפת. קנדי-ניקסון (1960): צופי הטלוויזיה — קנדי ניצח (רגוע, טוב-מראה); מאזיני הרדיו — ניקסון. הפער מוכיח שהתדמית החזותית מכריעה. ניתוח: הפוליטיקה הפכה למופע; איך אתה נראה = מה שאתה אומר. ביקורת: פסיביות, בידור על פני עומק, ריכוז כוח.</div>
+    </div>
+
+    <div class="qa">
+      <span class="qnum">שאלה 6 · בנימין</span>
+      <p class="qtext">בנימין: השעתוק הטכני גורם לאובדן ה"אאורה". א. הגדירו אאורה ושעתוק טכני. ב. הדגימו דרך צילום/קולנוע. ג. מדוע זו גם דמוקרטיזציה, ומה המחיר?</p>
+      <div class="ans"><span class="lab">שלד תשובה מלא</span>
+        אאורה = ההילה של יצירה חד-פעמית וייחודית; שעתוק טכני = ייצור המוני של עותקים זהים. צילום/קולנוע ניתנים לשכפול אינסופי → אין "מקור". דמוקרטיזציה: אמנות נגישה להמונים. מחיר: אובדן ייחודיות ואותנטיות, וטשטוש "אמת" (רשימת שינדלר, טרומן). סיכום: הנגשה מול אובדן ההילה.</div>
+    </div>
+
+    <div class="qa">
+      <span class="qnum">שאלה 7 · סינתזה (על-נושאית)</span>
+      <p class="qtext">"כל מדיום חדש מבטיח דמוקרטיזציה — ולרוב משכפל את יחסי הכוח הקיימים." דונו בטענה עם שתי דוגמאות משני עידנים (למשל דפוס ודיגיטל).</p>
+      <div class="ans"><span class="lab">שלד תשובה מלא</span>
+        טענה: כל מדיום פותח בהבטחת שוויון. דפוס: הבטיח ידע לכולם — אך שבר מבנה כוח ישן (כנסייה) ובנה חדש (מדינת לאום), ובתחילה רק אורייני-קוראים נהנו. דיגיטל: הבטיח "שוויון לכולם" — אך ההון הדיגיטלי (בורדייה) משכפל אי-שוויון קיים. מסקנה: הטכנולוגיה אינה ניטרלית; יחסי הכוח בחברה מכתיבים מי מרוויח. (שלב כאן את שני הצירים: דטרמיניזם/הבניה + דמוקרטיזציה/כוח.)</div>
     </div>
 
     <div class="callout">
       <h3>נוסחת התשובה — שמור בראש בזמן המבחן</h3>
       <ul class="terms">
-        <li><b>פתיחה (2–3 שורות):</b> הצג את התיאורטיקן/המושג המרכזי.</li>
-        <li><b>הסבר מושגי:</b> הגדר במדויק — זה מרוויח את נקודות ה"שליטה במושגים".</li>
-        <li><b>דוגמה היסטורית:</b> מקרה אחד קונקרטי (מהטבלה) — זו "ההוכחה" שלך.</li>
-        <li><b>ניתוח:</b> קשר בין ההמצאה לשינוי חברתי עמוק; הוסף מתח/ביקורת.</li>
+        <li><b>פתיחה (2–3 שורות):</b> הצג את התיאורטיקן/המושג.</li>
+        <li><b>הסבר מושגי:</b> הגדרה מדויקת — מרוויח את נקודות "השליטה במושגים".</li>
+        <li><b>דוגמה היסטורית:</b> מקרה אחד קונקרטי מהטבלה — זו "ההוכחה".</li>
+        <li><b>ניתוח:</b> קשר המצאה ↔ שינוי חברתי עמוק; הוסף מתח/ביקורת.</li>
         <li><b>סיכום:</b> משפט אחד שחוזר לעיקרון הגדול.</li>
       </ul>
     </div>
+  </section>
+
+  <!-- ============ PLAN ============ -->
+  <section id="plan">
+    <div class="sec-head"><div class="badge">📅</div><div><h2>תוכנית למידה ליומיים</h2><span class="sub">מותאמת למי שמתחיל כמעט מאפס</span></div></div>
+    <div class="card">
+      <p><b>המטרה:</b> להגיע ל-6 נושאים שאתה שולט בהם (מרווח ביטחון על 4 השאלות שתצטרך). הסדר חשוב: קודם התמונה הגדולה, אז השיעורים, אז תרגול.</p>
+      <h3>יום 1 — להבין את הסיפור (≈6 שעות)</h3>
+      <div class="table-scroll">
+      <table>
+        <thead><tr><th>זמן</th><th>מה עושים</th></tr></thead>
+        <tbody>
+          <tr><th>שעה 1</th><td>קרא את <b>הבריף מאפס</b> + שני הצירים. אל תמשיך עד שהסיפור הגדול ברור לך. זה הבסיס להכול.</td></tr>
+          <tr><th>שעה 2</th><td><b>שיעור 1</b> (המסגרת) + <b>שיעור 2</b> (דפוס). קרא לאט, הבן — אל תשנן.</td></tr>
+          <tr><th>שעה 3</th><td><b>שיעורים 6–7</b> (רדיו). ההימור הכי בטוח למבחן — תשקיע כאן.</td></tr>
+          <tr><th>הפסקה</th><td>30 דקות. באמת.</td></tr>
+          <tr><th>שעה 4</th><td><b>שיעור 10</b> (דיגיטל/בורדייה) לצד תשובת הדוגמה #2.</td></tr>
+          <tr><th>שעה 5</th><td>קרא את <b>הטיימליין הכללי + מפת המושגים</b>. עכשיו הכול מתחבר לתמונה אחת.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>יום 2 — להרחיב ולתרגל (≈6 שעות)</h3>
+      <div class="table-scroll">
+      <table>
+        <thead><tr><th>זמן</th><th>מה עושים</th></tr></thead>
+        <tbody>
+          <tr><th>שעה 1</th><td><b>שיעור 3</b> (טלגרף) + <b>שיעורים 8–9</b> (טלוויזיה).</td></tr>
+          <tr><th>שעה 2</th><td><b>שיעורים 4–5</b> (צילום/קולנוע + בנימין) + הסרטים (טרומן, להיות שם, שם הוורד).</td></tr>
+          <tr><th>שעה 3</th><td><b>סימולציה:</b> בחר 4 שאלות מהבנק וכתוב תשובות מלאות על שעון (~40 דק' לשאלה).</td></tr>
+          <tr><th>הפסקה</th><td>30 דקות.</td></tr>
+          <tr><th>שעה 4</th><td>השווה את מה שכתבת לשלדים בבנק. סמן חורים ותקן.</td></tr>
+          <tr><th>שעה 5</th><td>חזרה מהירה: "מה הכי חשוב לזכור" + טבלת הדוגמאות. כרטיסיות בראש.</td></tr>
+          <tr><th>שעה 6</th><td>קליל. סקירה אחרונה של נקודות תורפה. <b>לישון מוקדם.</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="exam-tip"><span class="label">כלל אחד לזכור</span>עדיף עיקרון גדול אחד + דוגמה חזקה שאתה שולט בה לגמרי, מאשר עשר עובדות מטושטשות. אל תטבע בפרטים — תחזיק את הסיפור הגדול.</div>
+    </div>
+    <p style="text-align:start"><a class="up" href="#brief">↑ חזרה לתמונה הגדולה</a></p>
   </section>
 
   <p class="foot">בהצלחה במבחן 🎓 · בנוי מתוך הסיכום המלא, ההנחיות, שאלות הדוגמה ומייל המרצה.</p>
