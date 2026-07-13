@@ -11,11 +11,11 @@
     --c1:#3c7a6f; --c2:#9a7d3e; --c3:#3f6a99; --c4:#4f7d4a; --c5:#a8622f; --c6:#6a5a86; --c7:#a4484e; --c8:#3c7a6f; --c9:#3f6a99;
     --say-bg:#e8f4ea; --say-ink:#2c7a43; --say-line:#bfe0c8;
     --dont-bg:#fbe9e9; --dont-ink:#b23b3b; --dont-line:#eecaca;
-    --intro-bg:#f6f4ee;
+    --op-bg:#f4f6f5;
   }
   @media screen and (prefers-color-scheme:dark){
     :root{ --paper:#16181c; --ink:#eceae4; --soft:#c2c2c2; --faint:#8c8f97; --line:#2c3038;
-      --cream:#2a2614; --cream-line:#4c421c; --cream-ink:#dcc264; --intro-bg:#1f2127;
+      --cream:#2a2614; --cream-line:#4c421c; --cream-ink:#dcc264; --op-bg:#1e2025;
       --say-bg:#16301f; --say-ink:#63cf88; --say-line:#204d31; --dont-bg:#331a1a; --dont-ink:#e58888; --dont-line:#5a2c2c;}
   }
   *{box-sizing:border-box;}
@@ -24,63 +24,62 @@
   .sheet{
     font-family:"Assistant","Heebo","Rubik",-apple-system,"Segoe UI",system-ui,sans-serif;
     color:var(--ink); background:var(--paper); max-width:210mm; margin:12px auto;
-    padding:7mm 6mm; box-shadow:0 2px 18px rgba(0,0,0,.15); font-size:9px; line-height:1.34;
+    padding:8mm 7mm; box-shadow:0 2px 18px rgba(0,0,0,.15); font-size:9.5px; line-height:1.4;
     -webkit-font-smoothing:antialiased;
   }
   .band{ border:1px solid var(--cream-line); background:var(--cream); border-radius:6px;
-    padding:4px 10px; display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;}
-  .band .r{ font-weight:800; font-size:13px;}
-  .band .m{ font-size:8.5px; color:var(--faint);}
-  .band .l{ font-size:8px; background:var(--cream-ink); color:var(--cream); padding:1.5px 7px; border-radius:20px; font-weight:700;}
+    padding:5px 11px; display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;}
+  .band .r{ font-weight:800; font-size:14px;}
+  .band .m{ font-size:9px; color:var(--faint);}
+  .band .l{ font-size:8.5px; background:var(--cream-ink); color:var(--cream); padding:2px 8px; border-radius:20px; font-weight:700;}
 
-  .gold{ background:var(--cream); border:1px solid var(--cream-line); border-radius:6px; padding:4px 10px; margin-bottom:6px;}
-  .gold h3{ margin:0 0 1px; font-size:9.5px; color:var(--cream-ink);}
-  .gold h3::before{ content:"★ "; }
-  .gold ol{ margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:0 12px; counter-reset:g;}
-  .gold li{ counter-increment:g; font-size:8.6px; position:relative; padding-inline-start:12px; flex:1 1 30%;}
+  .gold{ background:var(--cream); border:1px solid var(--cream-line); border-radius:6px; padding:5px 11px; margin-bottom:7px;}
+  .gold h3{ margin:0 0 2px; font-size:10px; color:var(--cream-ink);}
+  .gold h3::before{ content:"★ ";}
+  .gold ol{ margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:0 14px; counter-reset:g;}
+  .gold li{ counter-increment:g; font-size:9px; position:relative; padding-inline-start:13px; flex:1 1 30%;}
   .gold li::before{ content:counter(g)"."; position:absolute; inset-inline-start:0; color:var(--cream-ink); font-weight:800;}
 
-  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:5px;}
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:6px;}
   .card{ border:1px solid var(--line); border-radius:6px; overflow:hidden; break-inside:avoid; page-break-inside:avoid; background:var(--paper); display:flex; flex-direction:column;}
-  .card .hd{ background:var(--c); color:#fff; padding:2.5px 7px; font-weight:800; font-size:10px; display:flex; align-items:center; gap:5px;}
-  .card .hd .n{ background:rgba(255,255,255,.9); color:var(--c); width:13px; height:13px; border-radius:50%; display:grid; place-items:center; font-size:8.5px; flex:none;}
-  .card .hd .tag{ margin-inline-start:auto; font-size:7px; font-weight:600; opacity:.9;}
-  .card .bd{ padding:4px 7px; display:flex; flex-direction:column; gap:2.5px; flex:1;}
-  .intro{ background:var(--intro-bg); border-radius:4px; padding:2.5px 6px; font-size:8.8px;}
-  .intro b{ color:var(--c);}
-  .sub{ font-size:8.4px; font-weight:800; color:var(--c); border-bottom:1px solid var(--c); padding-bottom:.5px; margin-top:1px;}
-  ol.mini{ margin:1px 0; padding-inline-start:13px; font-size:8.7px;}
-  ol.mini li{ margin:.3px 0;}
-  .mini b, .intro b.k{ color:var(--ink);}
-  .dodont{ display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:auto; padding-top:2px;}
-  .say,.dont{ font-size:8.3px; border-radius:4px; padding:2.5px 5px; border:1px solid;}
+  .card .hd{ background:var(--c); color:#fff; padding:3px 8px; font-weight:800; font-size:10.5px; display:flex; align-items:center; gap:6px;}
+  .card .hd .n{ background:rgba(255,255,255,.92); color:var(--c); width:14px; height:14px; border-radius:50%; display:grid; place-items:center; font-size:9px; flex:none;}
+  .card .hd .tag{ margin-inline-start:auto; font-size:7.5px; font-weight:600; opacity:.9;}
+  .card .bd{ padding:5px 7px; display:flex; flex-direction:column; gap:4px; flex:1;}
+
+  .opener{ border-inline-start:3px solid var(--c); background:var(--op-bg); padding:4px 8px; border-radius:0 5px 5px 0;}
+  .opener .lbl{ font-size:7.8px; font-weight:800; color:var(--c); letter-spacing:.03em; display:block; margin-bottom:2px;}
+  .opener p{ margin:0; font-size:9.6px; line-height:1.46;}
+  .dev{ font-size:9px;}
+  .dev b{ color:var(--c);}
+  .dodont{ display:grid; grid-template-columns:1fr 1fr; gap:4px; margin-top:auto; padding-top:2px;}
+  .say,.dont{ font-size:8.6px; border-radius:4px; padding:3px 6px; border:1px solid; line-height:1.34;}
   .say{ background:var(--say-bg); color:var(--say-ink); border-color:var(--say-line);}
   .dont{ background:var(--dont-bg); color:var(--dont-ink); border-color:var(--dont-line);}
   .say b,.dont b{ font-weight:800; display:block;}
 
-  .foot3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:5px; margin-top:6px;}
-  .fbox{ border:1px solid var(--line); border-radius:6px; padding:4px 8px; break-inside:avoid;}
-  .fbox h3{ margin:0 0 2px; font-size:9.5px;}
+  .foot3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-top:7px;}
+  .fbox{ border:1px solid var(--line); border-radius:6px; padding:5px 9px; break-inside:avoid;}
+  .fbox h3{ margin:0 0 3px; font-size:10px;}
   .fbox.a h3{ color:var(--c5);} .fbox.b h3{ color:var(--c4);} .fbox.c h3{ color:var(--c6);}
   .fbox.c h3::before{ content:"★ ";}
-  .fbox ul{ margin:0; padding-inline-start:13px; font-size:8.5px;}
-  .fbox ul li{ margin:.5px 0;}
-  .tl{ display:grid; gap:1px; font-size:8.5px;}
-  .tl div{ display:flex; gap:5px;}
-  .tl .y{ font-weight:800; color:var(--c4); font-variant-numeric:tabular-nums; min-width:30px;}
-  .map div{ font-size:8.4px; margin:.6px 0; display:flex; justify-content:space-between; gap:6px;}
-  .map b{ color:var(--c6); white-space:nowrap;}
-  .map span{ color:var(--soft); text-align:start;}
-  .end{ text-align:center; color:var(--faint); font-size:8px; margin-top:5px;}
+  .fbox ul{ margin:0; padding-inline-start:14px; font-size:9px;}
+  .fbox ul li{ margin:.8px 0;}
+  .tl{ display:grid; gap:1.5px; font-size:9px;}
+  .tl div{ display:flex; gap:6px;}
+  .tl .y{ font-weight:800; color:var(--c4); font-variant-numeric:tabular-nums; min-width:32px;}
+  .map div{ font-size:8.8px; margin:1px 0;}
+  .map b{ color:var(--c6);}
+  .end{ text-align:center; color:var(--faint); font-size:8.5px; margin-top:6px;}
   .printbtn{ display:block; max-width:210mm; margin:12px auto 0; text-align:center;}
   .printbtn button{ font-family:inherit; font-size:13px; padding:8px 18px; border-radius:8px; border:none; background:var(--c1); color:#fff; cursor:pointer; font-weight:700;}
 
   @media (max-width:640px){ .grid,.foot3{grid-template-columns:1fr;} .gold li{flex:1 1 100%;} }
   @media print{
     body{background:#fff;} .printbtn{display:none;}
-    .sheet{ box-shadow:none; margin:0; max-width:none; padding:0; font-size:7.4pt;}
-    .band,.gold,.card .hd,.intro,.say,.dont{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
-    @page{ size:A4; margin:7mm;}
+    .sheet{ box-shadow:none; margin:0; max-width:none; padding:0; font-size:7.7pt;}
+    .band,.gold,.card .hd,.opener,.say,.dont{ -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    @page{ size:A4; margin:8mm;}
     :root{ --paper:#fff; --ink:#000; --line:#bcbcbc;}
   }
 </style>
@@ -91,8 +90,8 @@
 
   <div class="band">
     <div class="r">עזר מבחן · היסטוריה של אמצעי התקשורת</div>
-    <div class="m">9 נושאים · לפי הסיכום וההנחיות</div>
-    <div class="l">תשובה ישירה · קצר · ממוקד</div>
+    <div class="m">9 קוביות · פתיחה מוכנה לכל נושא</div>
+    <div class="l">העתק · הרחב · נתח</div>
   </div>
 
   <div class="gold">
@@ -101,7 +100,7 @@
       <li>ענה על 4 מתוך 5 — בחר את הנושאים החזקים.</li>
       <li>מבנה קבוע: הגדרה ← דוגמה ← ניתוח.</li>
       <li>תמיד קשר טכנולוגיה לשינוי חברתי — לא רשימת עובדות.</li>
-      <li>פתח כל תשובה בתיאורטיקן/מושג.</li>
+      <li>פתח כל תשובה בתיאורטיקן/מושג (השתמש בקוביות).</li>
       <li>דוגמה חזקה אחת עדיפה על עשר עובדות.</li>
       <li>הראה שני צדדים: הבטחה מול ביקורת.</li>
       <li>קרא שוב את השאלה — ענה על כל הסעיפים.</li>
@@ -113,13 +112,10 @@
     <div class="card" style="--c:var(--c1)">
       <div class="hd"><span class="n">1</span> גישות + מקלוהן <span class="tag">שיעור 1</span></div>
       <div class="bd">
-        <div class="intro"><b>פתיחה:</b> "המדיום הוא המסר" — הצורה מעצבת חברה יותר מהתוכן; הטכנולוגיה אינה ניטרלית.</div>
-        <div class="sub">מושגים מרכזיים</div>
-        <ol class="mini">
-          <li><b>דטרמיניזם</b> ↔ <b>הבניה חברתית</b></li>
-          <li>מדיה חם / קר · כפר גלובלי</li>
-          <li>מדיאטיזציה · מודל כספי (כרטיס 8)</li>
-        </ol>
+        <div class="opener"><span class="lbl">פתיחה לתשובה — העתק והתאם</span>
+          <p>לפי חוקר התקשורת מרשל מקלוהן, "המדיום הוא המסר" — אופיו של אמצעי התקשורת, ולא התוכן שעובר בו, הוא שמעצב את החברה ואת דרכי החשיבה. זוהי הגישה הדטרמיניסטית-טכנולוגית, הרואה בטכנולוגיה כוח המחולל שינוי חברתי בעצם קיומו.</p>
+        </div>
+        <div class="dev"><b>הרחב עם:</b> דטרמיניזם ↔ הבניה חברתית · מדיה חם/קר · כפר גלובלי · מודל כספי.</div>
         <div class="dodont">
           <div class="say"><b>✓ עשה</b>"עצם המעבר ל-X עיצב חברה מעבר לתוכן".</div>
           <div class="dont"><b>✗ אסור</b>"המדיה משפיעה כי התכנים משכנעים".</div>
@@ -130,15 +126,12 @@
     <div class="card" style="--c:var(--c2)">
       <div class="hd"><span class="n">2</span> הדפוס · גוטנברג 1439 <span class="tag">שיעור 2</span></div>
       <div class="bd">
-        <div class="intro"><b>פתיחה:</b> אוראלי→דפוס שינה את <b class="k">דרך החשיבה</b>, לא רק כמות הידע.</div>
-        <div class="sub">מושגים מרכזיים</div>
-        <ol class="mini">
-          <li>גלקסיית גוטנברג (ליניארי, אינדיבידואל)</li>
-          <li>מרחב ציבורי — <b>הברמס</b></li>
-          <li>קהילות מדומיינות — <b>אנדרסון</b></li>
-        </ol>
+        <div class="opener"><span class="lbl">פתיחה לתשובה — העתק והתאם</span>
+          <p>המצאת מכבש הדפוס בידי גוטנברג (1439) לא רק הפיצה ידע, אלא שינתה את עצם דרך החשיבה האנושית: המעבר מתרבות אוראלית לתרבות דפוס יצר — כדברי מקלוהן ב"גלקסיית גוטנברג" — את האדם הרציונלי והאינדיבידואלי.</p>
+        </div>
+        <div class="dev"><b>הרחב עם:</b> רפורמציה (לותר 1517) · מרחב ציבורי (הברמס) · קהילות מדומיינות (אנדרסון).</div>
         <div class="dodont">
-          <div class="say"><b>✓ עשה</b>3 שינויים: רפורמציה (לותר 1517), לאום, פרט.</div>
+          <div class="say"><b>✓ עשה</b>3 שינויים: רפורמציה (דת), לאום, אינדיבידואל.</div>
           <div class="dont"><b>✗ אסור</b>"הדפוס פשוט הפיץ יותר ספרים".</div>
         </div>
       </div>
@@ -147,13 +140,10 @@
     <div class="card" style="--c:var(--c3)">
       <div class="hd"><span class="n">3</span> טלגרף + רכבת <span class="tag">שיעור 3</span></div>
       <div class="bd">
-        <div class="intro"><b>פתיחה:</b> הפרדת מידע מתנועה פיזית = "ביטול המרחב והזמן"; מידע במהירות האור.</div>
-        <div class="sub">מושגים מרכזיים</div>
-        <ol class="mini">
-          <li>פיקוד ושליטה בזמן אמת</li>
-          <li>זמן סטנדרטי (סנכרון)</li>
-          <li>שוק גלובלי · סוכנויות ידיעות</li>
-        </ol>
+        <div class="opener"><span class="lbl">פתיחה לתשובה — העתק והתאם</span>
+          <p>הטלגרף והרכבת תוארו כמי ש"ביטלו את המרחב והזמן": לראשונה בהיסטוריה הופרד המידע מהתנועה הפיזית ונע בכוחות עצמו, במהירות האור. שינוי זה עיצב מחדש את הצבא, הכלכלה ותפיסת הזמן.</p>
+        </div>
+        <div class="dev"><b>הרחב עם:</b> פיקוד ושליטה · זמן סטנדרטי · שוק גלובלי · סוכנויות ידיעות.</div>
         <div class="dodont">
           <div class="say"><b>✓ עשה</b>מברק אמס (1870) → מלחמת פרוסיה-צרפת.</div>
           <div class="dont"><b>✗ אסור</b>"הטלגרף רק העביר הודעות מהר".</div>
@@ -164,13 +154,10 @@
     <div class="card" style="--c:var(--c4)">
       <div class="hd"><span class="n">4</span> צילום וקולנוע <span class="tag">שיעורים 4–5</span></div>
       <div class="bd">
-        <div class="intro"><b>פתיחה:</b> ייצוג ש<b class="k">נראה</b> אובייקטיבי אך תמיד הבניית מציאות.</div>
-        <div class="sub">מושגים מרכזיים</div>
-        <ol class="mini">
-          <li><b>בנימין:</b> אאורה · שעתוק טכני</li>
-          <li>דמוקרטיזציה של אמנות</li>
-          <li>מדיאטיזציה · U&amp;G (צופה פעיל)</li>
-        </ol>
+        <div class="opener"><span class="lbl">פתיחה לתשובה — העתק והתאם</span>
+          <p>הצילום (1839) והקולנוע יצרו ייצוג של מציאות שנראה אובייקטיבי, אך למעשה תמיד עבר בחירה ועריכה — "הבניית מציאות". ולטר בנימין הראה שהשעתוק הטכני מרוקן את היצירה מ"האאורה" הייחודית שלה.</p>
+        </div>
+        <div class="dev"><b>הרחב עם:</b> אאורה · שעתוק טכני · דמוקרטיזציה של אמנות · מדיאטיזציה · U&amp;G.</div>
         <div class="dodont">
           <div class="say"><b>✓ עשה</b>הנגשה מול אובדן אאורה; שינדלר / טרומן.</div>
           <div class="dont"><b>✗ אסור</b>"המצלמה מתעדת את האמת".</div>
@@ -181,13 +168,10 @@
     <div class="card" style="--c:var(--c7)">
       <div class="hd"><span class="n">5</span> הרדיו ★ <span class="tag">שיעורים 6–7</span></div>
       <div class="bd">
-        <div class="intro"><b>פתיחה:</b> קול חי "לתוך הסלון", בו-זמנית; מדורה שבטית; מדיה חם.</div>
-        <div class="sub">מושגים + צבא</div>
-        <ol class="mini">
-          <li>מודל היפודרמי (מזרק) · פרנקפורט</li>
-          <li>פארא-חברתי (תחושת "חבר")</li>
-          <li>צבא: בליצקריג · לוחמה אלקטרונית</li>
-        </ol>
+        <div class="opener"><span class="lbl">פתיחה לתשובה — העתק והתאם</span>
+          <p>הרדיו חולל מהפכה במנהיגות ובתרבות ההמונים: לראשונה יכול קול אנושי אחד להגיע בו-זמנית לתוך הסלון של מיליונים. מקלוהן ראה בכך "מדורה שבטית" — אך אותו כלי בדיוק שירת מטרות פוליטיות הפוכות, דמוקרטית וטוטליטרית.</p>
+        </div>
+        <div class="dev"><b>הרחב עם:</b> מדיה חם · מודל היפודרמי · פארא-חברתי · צבא: בליצקריג ולוחמה אלקטרונית.</div>
         <div class="dodont">
           <div class="say"><b>✓ עשה</b>רוזוולט (דמוקרטי) ↔ גבלס (Volksempfänger).</div>
           <div class="dont"><b>✗ אסור</b>להזכיר רק מנהיג אחד — הכוח בהשוואה.</div>
@@ -198,13 +182,10 @@
     <div class="card" style="--c:var(--c5)">
       <div class="hd"><span class="n">6</span> הטלוויזיה <span class="tag">שיעורים 8–9</span></div>
       <div class="bd">
-        <div class="intro"><b>פתיחה:</b> תמונה+מיידיות; <b class="k">הבניית מציאות</b>; מדורה שבטית גלובלית.</div>
-        <div class="sub">מושגים מרכזיים</div>
-        <ol class="mini">
-          <li>Agenda Setting (קובעת מה חשוב)</li>
-          <li>גלובליזציה — <b>רוברטסון</b></li>
-          <li>פוליטיקה כתדמית · שיבוש</li>
-        </ol>
+        <div class="opener"><span class="lbl">פתיחה לתשובה — העתק והתאם</span>
+          <p>הטלוויזיה הוסיפה לקול ממד חזותי והפכה את העולם ל"מדורה שבטית גלובלית". מושג המפתח להבנתה הוא "הבניית מציאות": הטלוויזיה אינה משקפת את המציאות אלא מעצבת אותה, וקובעת אילו נושאים ייתפסו כחשובים (Agenda Setting).</p>
+        </div>
+        <div class="dev"><b>הרחב עם:</b> Agenda Setting · גלובליזציה (רוברטסון) · פוליטיקה כתדמית · שיבוש.</div>
         <div class="dodont">
           <div class="say"><b>✓ עשה</b>קנדי-ניקסון 1960 (טלוויזיה≠רדיו).</div>
           <div class="dont"><b>✗ אסור</b>"הטלוויזיה משקפת מציאות".</div>
@@ -215,13 +196,10 @@
     <div class="card" style="--c:var(--c6)">
       <div class="hd"><span class="n">7</span> המהפכה הדיגיטלית <span class="tag">שיעור 10</span></div>
       <div class="bd">
-        <div class="intro"><b>פתיחה:</b> אנלוגי→ביטים; צרכן→<b class="k">יצרן-צרכן</b>; הדמוקרטיזציה מתעתעת.</div>
-        <div class="sub">מושגים מרכזיים</div>
-        <ol class="mini">
-          <li><b>בורדייה:</b> 4 סוגי הון → הון דיגיטלי</li>
-          <li>הביטוס דיגיטלי · שדה (field)</li>
-          <li>פער דיגיטלי · כלכלת קשב</li>
-        </ol>
+        <div class="opener"><span class="lbl">פתיחה לתשובה — העתק והתאם</span>
+          <p>המהפכה הדיגיטלית הפכה את כל סוגי המדיה לשפה אחת (ביטים), ואת המשתמש מצרכן פסיבי ל"יצרן-צרכן" (prosumer). ההבטחה הייתה "דמוקרטיזציה" ושוויון לכולם — אך מושג "ההון הדיגיטלי", בעקבות בורדייה, חושף כיצד הרשת דווקא משכפלת את פערי הכוח הקיימים.</p>
+        </div>
+        <div class="dev"><b>הרחב עם:</b> 4 סוגי הון · הביטוס דיגיטלי · שדה (field) · פער דיגיטלי · כלכלת קשב.</div>
         <div class="dodont">
           <div class="say"><b>✓ עשה</b>הון קיים ממיר להון דיגיטלי → משכפל אי-שוויון.</div>
           <div class="dont"><b>✗ אסור</b>"האינטרנט נותן שוויון לכולם".</div>
@@ -232,13 +210,10 @@
     <div class="card" style="--c:var(--c8)">
       <div class="hd"><span class="n">8</span> מודל כספי · 1993 <span class="tag">אנליטי</span></div>
       <div class="bd">
-        <div class="intro"><b>פתיחה:</b> "מחזור החיים" של כל מדיום חדש — שלד לכל שאלה על כניסת מדיום.</div>
-        <div class="sub">חמשת השלבים</div>
-        <ol class="mini">
-          <li>פריצה → התמסדות</li>
-          <li>→ <b>התנגנות</b> (הישן נלחם בחדש)</li>
-          <li>→ הסתגלות → התלכדות</li>
-        </ol>
+        <div class="opener"><span class="lbl">פתיחה לתשובה — העתק והתאם</span>
+          <p>לפי המודל ההיסטורי-טכנולוגי של דן כספי (1993), כל אמצעי תקשורת חדש עובר חמישה שלבים קבועים בכניסתו לחברה — מסגרת המאפשרת לנתח באופן שיטתי את מחזור החיים של כל מדיום, מהדפוס ועד האינטרנט.</p>
+        </div>
+        <div class="dev"><b>חמשת השלבים:</b> פריצה → התמסדות → <b>התנגנות</b> → הסתגלות → התלכדות.</div>
         <div class="dodont">
           <div class="say"><b>✓ עשה</b>התנגנות = עיתונות נגד רדיו (בילטמור 1933).</div>
           <div class="dont"><b>✗ אסור</b>לבלבל שלבים / לשכוח "התנגנות".</div>
@@ -249,15 +224,12 @@
     <div class="card" style="--c:var(--c9)">
       <div class="hd"><span class="n">9</span> נוסחת התשובה <span class="tag">מבנה</span></div>
       <div class="bd">
-        <div class="intro"><b>מבנה תשובה:</b> פתיחה → מושג → דוגמה → ניתוח → סיכום.</div>
-        <div class="sub">שני הצירים</div>
-        <ol class="mini">
-          <li>דטרמיניזם ↔ הבניה חברתית</li>
-          <li>דמוקרטיזציה ↔ יחסי כוח</li>
-          <li>"שערו" = שאלת יישום → 2 צדדים</li>
-        </ol>
+        <div class="opener"><span class="lbl">איך בונים תשובה מנצחת</span>
+          <p>כל תשובה טובה עושה חמישה מהלכים: <b>פתיחה</b> (הצג תיאורטיקן) → <b>הסבר מושגי</b> → <b>דוגמה</b> היסטורית → <b>ניתוח</b> → <b>סיכום</b> שחוזר לעיקרון. מאחורי כל שאלה עומדים שני צירים שתמיד אפשר לנתח דרכם.</p>
+        </div>
+        <div class="dev"><b>שני הצירים:</b> דטרמיניזם ↔ הבניה חברתית · דמוקרטיזציה ↔ יחסי כוח. ("שערו" = יישום → 2 צדדים.)</div>
         <div class="dodont">
-          <div class="say"><b>✓ עשה</b>תמיד קשר טכנולוגיה לשינוי תרבותי עמוק.</div>
+          <div class="say"><b>✓ עשה</b>קשר תמיד טכנולוגיה לשינוי תרבותי עמוק.</div>
           <div class="dont"><b>✗ אסור</b>רשימת עובדות ותאריכים בלי טיעון.</div>
         </div>
       </div>
@@ -284,7 +256,7 @@
     <div class="fbox a">
       <h3>טיפים לניסוח מהיר</h3>
       <ul>
-        <li>פתח ב"לפי [תיאורטיקן]..." — נקודות מושגים.</li>
+        <li>העתק את הפתיחה מהקובייה, ואז הרחב.</li>
         <li>לכל דוגמה: משפט הסבר + עובדה קונקרטית.</li>
         <li>"שערו" = שאלת יישום → הראה 2 צדדים.</li>
         <li>סיים כל תשובה במשפט שחוזר לעיקרון.</li>
@@ -294,12 +266,11 @@
     </div>
     <div class="fbox c map">
       <h3>מפת תיאורטיקנים</h3>
-      <div><b>מקלוהן</b><span>המדיום הוא המסר · חם/קר · כפר גלובלי</span></div>
-      <div><b>בורדייה</b><span>4 סוגי הון → הון דיגיטלי · הביטוס</span></div>
-      <div><b>בנימין</b><span>אאורה · שעתוק טכני · דמוקרטיזציה</span></div>
-      <div><b>הברמס</b><span>המרחב הציבורי</span></div>
-      <div><b>אנדרסון</b><span>קהילות מדומיינות (לאום)</span></div>
-      <div><b>כספי</b><span>5 שלבים · <b>רוברטסון</b> גלובליזציה</span></div>
+      <div><b>מקלוהן</b> — המדיום הוא המסר · חם/קר · כפר גלובלי</div>
+      <div><b>בורדייה</b> — 4 סוגי הון → הון דיגיטלי · הביטוס</div>
+      <div><b>בנימין</b> — אאורה · שעתוק טכני · דמוקרטיזציה</div>
+      <div><b>הברמס</b> — המרחב הציבורי · <b>אנדרסון</b> — קהילות מדומיינות</div>
+      <div><b>כספי</b> — 5 שלבים · <b>רוברטסון</b> — גלובליזציה</div>
     </div>
   </div>
 
