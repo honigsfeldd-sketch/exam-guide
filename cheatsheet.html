@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שליפים למבחן — היסטוריה של אמצעי התקשורת</title>
+<style>
+  :root {
+    --paper:#fff; --ink:#161616; --soft:#444; --faint:#777; --line:#d8d5cd;
+    --accent:#0E5F5A; --accent-bg:#E6F1EF; --amber:#9c6410; --amber-bg:#F7EFDD;
+    --plum:#7A3350; --plum-bg:#F3E6EC;
+  }
+  @media screen and (prefers-color-scheme: dark) {
+    :root { --paper:#15171b; --ink:#ECEBE6; --soft:#B4B6BD; --faint:#8a8d95;
+      --line:#2c3038; --accent:#47B3AC; --accent-bg:#16302E; --amber:#D69A44;
+      --amber-bg:#2c2416; --plum:#D08AA6; --plum-bg:#2e1e26; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#e9e7e2; }
+  @media (prefers-color-scheme: dark){ body{ background:#0e0f12; } }
+  .sheet {
+    font-family:"Assistant","Heebo","Rubik",-apple-system,"Segoe UI",system-ui,sans-serif;
+    color:var(--ink); background:var(--paper);
+    max-width:210mm; margin:12px auto; padding:14mm 12mm;
+    box-shadow:0 2px 18px rgba(0,0,0,.15); font-size:11.2px; line-height:1.5;
+  }
+  h1 { font-size:19px; margin:0 0 2px; font-weight:800; letter-spacing:-.01em; }
+  .sub { color:var(--faint); font-size:11px; margin:0 0 10px; }
+  .topbar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  .topbox { flex:1 1 240px; border:1px solid var(--line); border-radius:8px; padding:7px 10px; background:var(--accent-bg); }
+  .topbox.axes { background:var(--amber-bg); }
+  .topbox h3 { margin:0 0 3px; font-size:11px; color:var(--accent); letter-spacing:.03em; }
+  .topbox.axes h3 { color:var(--amber); }
+  .topbox p { margin:2px 0; }
+  .topbox b { color:var(--ink); }
+
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .card { border:1px solid var(--line); border-radius:8px; overflow:hidden; break-inside:avoid; page-break-inside:avoid; background:var(--paper); }
+  .card > .hd { background:var(--accent); color:#fff; padding:4px 9px; font-weight:800; font-size:12px; display:flex; justify-content:space-between; align-items:center; }
+  .card > .hd .tag { font-size:9px; font-weight:600; opacity:.85; }
+  .card > .bd { padding:6px 9px; }
+  .row { margin:3px 0; }
+  .row .k { font-size:8.5px; font-weight:800; letter-spacing:.04em; color:var(--accent); display:block; text-transform:uppercase; }
+  .row.ex .k { color:var(--plum); }
+  .row.sk .k { color:var(--amber); }
+  .row b { color:var(--ink); }
+  .card.big { grid-column:1 / -1; }
+
+  .theorists { margin-top:12px; border:1px solid var(--line); border-radius:8px; padding:8px 10px; background:var(--accent-bg); break-inside:avoid; }
+  .theorists h3 { margin:0 0 5px; font-size:12px; color:var(--accent); }
+  .theorists .tg { display:grid; grid-template-columns:repeat(3,1fr); gap:5px 12px; }
+  .theorists .tg div { font-size:10.5px; }
+  .theorists .tg b { color:var(--ink); }
+
+  .must { margin-top:10px; background:var(--amber-bg); border-radius:8px; padding:8px 11px; break-inside:avoid; }
+  .must h3 { margin:0 0 4px; font-size:12px; color:var(--amber); }
+  .must ol { margin:0; padding-inline-start:16px; }
+  .must li { margin:1px 0; }
+  .foot { text-align:center; color:var(--faint); font-size:10px; margin-top:12px; }
+
+  .printbtn { display:block; max-width:210mm; margin:12px auto 0; text-align:center; }
+  .printbtn button { font-family:inherit; font-size:13px; padding:8px 18px; border-radius:8px; border:none; background:var(--accent); color:#fff; cursor:pointer; font-weight:700; }
+  @media print {
+    body { background:#fff; }
+    .sheet { box-shadow:none; margin:0; max-width:none; padding:0; font-size:9.6pt; }
+    .printbtn { display:none; }
+    .card > .hd { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    @page { size:A4; margin:11mm; }
+    :root { --paper:#fff; --ink:#000; --soft:#333; --line:#bbb; --accent:#0E5F5A; --accent-bg:#EAF3F1; --amber:#8a5810; --amber-bg:#F6EEDC; --plum:#7A3350; --plum-bg:#F3E6EC; }
+  }
+</style>
+</head>
+<body>
+<div class="printbtn"><button onclick="window.print()">🖨️ הדפס / שמור כ-PDF</button></div>
+<div class="sheet">
+  <h1>שליפים למבחן — היסטוריה של אמצעי התקשורת</h1>
+  <p class="sub">דף מרוכז לחזרה אחרונה · עיקרון · מושגים · דוגמת מפתח · שלד תשובה</p>
+
+  <div class="topbar">
+    <div class="topbox">
+      <h3>נוסחת התשובה (לכל שאלה)</h3>
+      <p><b>פתיחה</b> → <b>הסבר מושגי</b> → <b>דוגמה</b> → <b>ניתוח</b> → <b>סיכום</b>. תמיד קשר המצאה טכנית לשינוי תרבותי עמוק.</p>
+    </div>
+    <div class="topbox axes">
+      <h3>שני הצירים שמחברים הכול</h3>
+      <p><b>דטרמיניזם</b> (הטכנולוגיה מעצבת) ↔ <b>הבניה חברתית</b> (החברה מכתיבה שימוש).</p>
+      <p><b>דמוקרטיזציה</b> (הבטחה) ↔ <b>שכפול יחסי כוח</b> (מציאות).</p>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="hd"><span>מבוא + מקלוהן</span><span class="tag">שיעור 1</span></div>
+      <div class="bd">
+        <div class="row"><span class="k">עיקרון</span> "המדיום הוא המסר" — הצורה חשובה מהתוכן; עצם הטכנולוגיה מעצבת חברה.</div>
+        <div class="row"><span class="k">מושגים</span> דטרמיניזם ↔ הבניה חברתית · מדיה חם/קר · כפר גלובלי · <b>מודל כספי</b>: פריצה→התמסדות→התנגנות→הסתגלות→התלכדות.</div>
+        <div class="row sk"><span class="k">שלד</span> הצהרה דטרמיניסטית → הדגמה → קישור לתיאוריה.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="hd"><span>הדפוס (גוטנברג 1439)</span><span class="tag">שיעור 2</span></div>
+      <div class="bd">
+        <div class="row"><span class="k">עיקרון</span> אוראלי→דפוס שינה את <b>דרך החשיבה</b> (ליניארית, אינדיבידואלית), לא רק כמות הידע.</div>
+        <div class="row"><span class="k">מושגים</span> גלקסיית גוטנברג · אינדיבידואל · מרחב ציבורי (<b>הברמס</b>) · קהילות מדומיינות (<b>אנדרסון</b>).</div>
+        <div class="row ex"><span class="k">דוגמה</span> רפורמציה (לותר 1517) · "שם הוורד".</div>
+        <div class="row sk"><span class="k">שלד</span> 3 שינויים: דת (רפורמציה) · לאום (שפות מקומיות) · פרט (אינדיבידואל).</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="hd"><span>הטלגרף + רכבת</span><span class="tag">שיעור 3</span></div>
+      <div class="bd">
+        <div class="row"><span class="k">עיקרון</span> <b>הפרדת מידע מתנועה פיזית</b> = "ביטול המרחב והזמן"; מידע במהירות האור.</div>
+        <div class="row"><span class="k">מושגים</span> פיקוד ושליטה בזמן אמת · זמן סטנדרטי · שוק גלובלי · סוכנויות ידיעות · עיתון המוני.</div>
+        <div class="row ex"><span class="k">דוגמה</span> מברק אמס (1870)→מלחמת פרוסיה-צרפת · קו טלגרף 1900.</div>
+        <div class="row sk"><span class="k">שלד</span> צבא (פיקוד) + כלכלה (שוק גלובלי) + זמן (סנכרון).</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="hd"><span>צילום וקולנוע</span><span class="tag">שיעורים 4–5</span></div>
+      <div class="bd">
+        <div class="row"><span class="k">עיקרון</span> ייצוג ש<b>נראה</b> אובייקטיבי אך תמיד <b>הבניית מציאות</b> (בחירה, עריכה).</div>
+        <div class="row"><span class="k">מושגים</span> <b>בנימין</b>: אאורה · שעתוק טכני · דמוקרטיזציה של אמנות · מדיאטיזציה · U&amp;G (צופה פעיל).</div>
+        <div class="row ex"><span class="k">דוגמה</span> "רשימת שינדלר" (ש/ל=תיעוד) · "טרומן"/"סימונה" (היפר-ריאליות).</div>
+        <div class="row sk"><span class="k">שלד</span> הנגשה (דמוקרטיזציה) מול אובדן אאורה/אותנטיות.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="hd"><span>הרדיו ★</span><span class="tag">שיעורים 6–7</span></div>
+      <div class="bd">
+        <div class="row"><span class="k">עיקרון</span> קול חי ישירות "לתוך הסלון", בו-זמנית; מדורה שבטית; מדיה חם.</div>
+        <div class="row"><span class="k">מושגים</span> מודל היפודרמי (מזרק) · פרנקפורט · פארא-חברתי.</div>
+        <div class="row ex"><span class="k">דוגמה</span> <b>רוזוולט</b> (שיחות ליד האח, דמוקרטי) ↔ <b>גבלס</b> (Volksempfänger, טוטליטרי) · מלחמת העולמות 1938.</div>
+        <div class="row"><span class="k">צבא</span> בליצקריג (תיאום טנקים/מטוסים/צוללות) · לוחמה אלקטרונית (שיבוש/ריגול).</div>
+        <div class="row sk"><span class="k">שלד</span> אותו כלי, 2 שימושים הפוכים = דטרמיניזם מול הבניה.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="hd"><span>הטלוויזיה</span><span class="tag">שיעורים 8–9</span></div>
+      <div class="bd">
+        <div class="row"><span class="k">עיקרון</span> תמונה+קול+מיידיות; <b>הבניית מציאות</b> (לא משקפת—מעצבת); מדורה שבטית גלובלית.</div>
+        <div class="row"><span class="k">מושגים</span> Agenda Setting · גלובליזציה (<b>רוברטסון</b>) · טלוויזיה כשיבוש · פוליטיקה כתדמית.</div>
+        <div class="row ex"><span class="k">דוגמה</span> <b>קנדי-ניקסון 1960</b> (טלוויזיה: קנדי / רדיו: ניקסון) · "להיות שם".</div>
+        <div class="row sk"><span class="k">שלד</span> התדמית מכריעה → ביקורת: פסיביות, בידור, ריכוז כוח.</div>
+      </div>
+    </div>
+
+    <div class="card big">
+      <div class="hd"><span>המהפכה הדיגיטלית</span><span class="tag">שיעור 10</span></div>
+      <div class="bd">
+        <div class="row"><span class="k">עיקרון</span> אנלוגי→ביטים; צרכן→<b>יצרן-צרכן (prosumer)</b>; התכנסות מדיה. הבטחת <b>הדמוקרטיזציה מתעתעת</b>.</div>
+        <div class="row"><span class="k">מושגים</span> <b>בורדייה</b> — הון: כלכלי · תרבותי · חברתי · סימבולי ← <b>הון דיגיטלי</b> · הביטוס דיגיטלי · שדה (field) · פער דיגיטלי · כלכלת קשב.</div>
+        <div class="row ex"><span class="k">דוגמה</span> קשרים בלינקדאין→עבודה · מיומנות בטיקטוק→מעמד · iPhone 2007.</div>
+        <div class="row sk"><span class="k">שלד</span> מי שיש לו הון קיים ממיר להון דיגיטלי → הרשת <b>משכפלת</b> אי-שוויון (סוגר מעגל עם הדפוס).</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="theorists">
+    <h3>מפת תיאורטיקנים — מי קשור למה</h3>
+    <div class="tg">
+      <div><b>מקלוהן</b> — המדיום הוא המסר · חם/קר · כפר גלובלי · גלקסיית גוטנברג</div>
+      <div><b>בורדייה</b> — 4 סוגי הון → הון דיגיטלי · הביטוס · שדה</div>
+      <div><b>בנימין</b> — אאורה · שעתוק טכני · דמוקרטיזציה של אמנות</div>
+      <div><b>הברמס</b> — המרחב הציבורי</div>
+      <div><b>אנדרסון</b> — קהילות מדומיינות (לאום)</div>
+      <div><b>כספי</b> — מודל 5 שלבים · <b>רוברטסון</b> — גלובליזציה</div>
+    </div>
+  </div>
+
+  <div class="must">
+    <h3>5 עקרונות גדולים — אם תזכור רק את אלה</h3>
+    <ol>
+      <li><b>המדיום הוא המסר</b> — הטכנולוגיה מעצבת חברה, לא רק תוכנה.</li>
+      <li><b>כל מדיום מבטל מגבלה</b> — דפוס=ידע · טלגרף=מרחב/זמן · רדיו/טלוויזיה=מרחק · דיגיטל=יצרן≠צרכן.</li>
+      <li><b>אותו כלי, שני שימושים</b> — דמוקרטי מול טוטליטרי (רוזוולט↔גבלס).</li>
+      <li><b>המדיה מבנה מציאות</b> — לא משקפת אלא מעצבת.</li>
+      <li><b>הדמוקרטיזציה מתעתעת</b> — מדפוס ועד הון דיגיטלי, הרשת משכפלת אי-שוויון.</li>
+    </ol>
+  </div>
+
+  <p class="foot">בהצלחה 🎓 · לחזרה בלבד — המבחן ללא חומר עזר</p>
+</div>
+</body>
+</html>
